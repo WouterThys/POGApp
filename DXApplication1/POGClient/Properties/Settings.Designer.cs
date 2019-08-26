@@ -22,29 +22,5 @@ namespace POGClient.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.0.182")]
-        public string ServiceIP {
-            get {
-                return ((string)(this["ServiceIP"]));
-            }
-            set {
-                this["ServiceIP"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("9001")]
-        public int ServicePort {
-            get {
-                return ((int)(this["ServicePort"]));
-            }
-            set {
-                this["ServicePort"] = value;
-            }
-        }
     }
 }

@@ -10,14 +10,14 @@ namespace Common
     [DataContract]
     public class Message
     {
-        private string sender;
+        private long sender;
         private string content;
         private DateTime time;
 
         [DataMember]
-        public string Sender
+        public long Sender
         {
-            get { return sender ?? ""; }
+            get { return sender; }
             set { sender = value; }
         }
 

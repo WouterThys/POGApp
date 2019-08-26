@@ -12,7 +12,6 @@ namespace POGApp
     public class POGService : IPOGService
     {
         private readonly Dictionary<Client, IPOGCallback> clients = new Dictionary<Client, IPOGCallback>();
-        private readonly List<Client> clientList = new List<Client>();
 
         private readonly object syncObj = new object();
 
@@ -24,45 +23,47 @@ namespace POGApp
             }
         }
 
-        private bool HasClient(string name)
-        {
-            foreach (Client c in clients.Keys)
-            {
-                if (c.Name == name)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
         public bool Connect(Client client)
         {
-            if (!clients.ContainsValue(CurrentCallback) && !HasClient(client.Name))
+            lock (syncObj)
             {
-                lock (syncObj)
+                client.LoggedIn = true;
+                Client knownClient = clients.Keys.FirstOrDefault(c => c.Id == client.Id);
+                if (knownClient != null)
                 {
-                    clients.Add(client, CurrentCallback);
-                    clientList.Add(client);
-
-                    foreach (Client key in clients.Keys)
+                    knownClient.Name = client.Name;
+                    knownClient.Info = client.Info;
+                    knownClient.Avatar = client.Avatar;
+                    knownClient.Time = DateTime.Now;
+                    knownClient.LoggedIn = client.LoggedIn;
+                }
+                clients[client] = CurrentCallback;
+                
+                foreach (Client key in clients.Keys)
+                {
+                    IPOGCallback callback = clients[key];
+                    try
                     {
-                        IPOGCallback callback = clients[key];
-                        try
-                        {
-                            callback.RefreshClients(clientList);
-                            callback.UserJoin(client);
-                        }
-                        catch
-                        {
-                            clients.Remove(key);
-                            return false;
-                        }
+                        List<Client> clientList = new List<Client>(clients.Keys);
+                        callback.RefreshClients(clientList);
+                        callback.UserJoin(client);
+                    }
+                    catch
+                    {
+                        clients.Remove(key);
+                        return false;
                     }
                 }
-                return true;
             }
-            return false;
+            return true;
+        }
+
+        public List<Client> GetClients()
+        {
+            lock (syncObj)
+            {
+                return new List<Client>(clients.Keys);
+            }
         }
 
         public void Say(Message msg)
@@ -87,7 +88,7 @@ namespace POGApp
 
                     foreach (Client sender in clients.Keys)
                     {
-                        if (sender.Name == msg.Sender)
+                        if (sender.Id == msg.Sender)
                         {
                             IPOGCallback senderCallback = clients[sender];
                             senderCallback.ReceiveWhisper(msg, rec);
@@ -127,7 +128,7 @@ namespace POGApp
 
                     foreach (Client sender in clients.Keys)
                     {
-                        if (sender.Name == fileMsg.Sender)
+                        if (sender.Id == fileMsg.Sender)
                         {
                             IPOGCallback sndrCallback = clients[sender];
                             sndrCallback.ReceiveWhisper(msg, receiver);
@@ -143,19 +144,22 @@ namespace POGApp
         {
             foreach (Client c in clients.Keys)
             {
-                if (client.Name == c.Name)
+                if (client.Id == c.Id)
                 {
                     lock (syncObj)
                     {
-                        clients.Remove(c);
-                        clientList.Remove(c);
-                        foreach (IPOGCallback callback in clients.Values)
+                        c.LoggedIn = false;
+                        foreach (Client c2 in clients.Keys)
                         {
-                            callback.RefreshClients(clientList);
-                            callback.UserLeave(client);
+                            if (client.Id != c2.Id)
+                            {
+                                IPOGCallback callback = clients[c2];
+                                List<Client> clientList = new List<Client>(clients.Keys);
+                                callback.RefreshClients(clientList);
+                                callback.UserLeave(client);
+                            }
                         }
                     }
-                    return;
                 }
             }
         }

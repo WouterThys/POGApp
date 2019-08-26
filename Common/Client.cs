@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
@@ -8,39 +9,95 @@ using System.Threading.Tasks;
 namespace Common
 {
     [DataContract]
-    public class Client
+    public class Client : BaseClass, IEquatable<Client>
     {
+        private long id;
         private string name;
         private string info;
         private int avatar;
         private DateTime time;
+        private bool loggedIn;
+
+        private Image image;
+
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Client);
+        }
+
+        public bool Equals(Client other)
+        {
+            return other != null &&
+                   Id == other.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return 2108858624 + Id.GetHashCode();
+        }
+
+        public static bool operator ==(Client client1, Client client2)
+        {
+            return EqualityComparer<Client>.Default.Equals(client1, client2);
+        }
+
+        public static bool operator !=(Client client1, Client client2)
+        {
+            return !(client1 == client2);
+        }
+
+
+        [DataMember]
+        public long Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
         [DataMember]
         public string Name
         {
             get { return name ?? ""; }
-            set { name = value; }
+            set
+            {
+                name = value;
+                OnPropertyChanged("Name");
+            }
         }
 
         [DataMember]
         public string Info
         {
             get { return info ?? ""; }
-            set { info = value; }
+            set { info = value; OnPropertyChanged("Info"); }
         }
 
         [DataMember]
         public int Avatar
         {
             get { return avatar; }
-            set { avatar = value; }
+            set { avatar = value; OnPropertyChanged("Avatar"); }
         }
 
         [DataMember]
         public DateTime Time
         {
             get { return time; }
-            set { time = value; }
+            set { time = value; OnPropertyChanged("Time"); }
+        }
+
+        [DataMember]
+        public bool LoggedIn
+        {
+            get { return loggedIn; }
+            set { loggedIn = value; OnPropertyChanged("LoggedIn"); }
+        }
+
+        public Image Image
+        {
+            get { return image; }
+            set { image = value; }
         }
     }
 }

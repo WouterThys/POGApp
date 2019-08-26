@@ -21,6 +21,12 @@ namespace POGClient.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/Connect", ReplyAction="http://tempuri.org/IPOGService/ConnectResponse")]
         System.Threading.Tasks.Task<bool> ConnectAsync(Common.Client client);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/GetClients", ReplyAction="http://tempuri.org/IPOGService/GetClientsResponse")]
+        System.Collections.Generic.List<Common.Client> GetClients();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/GetClients", ReplyAction="http://tempuri.org/IPOGService/GetClientsResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Common.Client>> GetClientsAsync();
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/Say")]
         void Say(Common.Message msg);
         
@@ -111,6 +117,14 @@ namespace POGClient.ServiceReference {
         
         public System.Threading.Tasks.Task<bool> ConnectAsync(Common.Client client) {
             return base.Channel.ConnectAsync(client);
+        }
+        
+        public System.Collections.Generic.List<Common.Client> GetClients() {
+            return base.Channel.GetClients();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Common.Client>> GetClientsAsync() {
+            return base.Channel.GetClientsAsync();
         }
         
         public void Say(Common.Message msg) {
