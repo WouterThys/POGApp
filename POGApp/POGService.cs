@@ -11,7 +11,11 @@ namespace POGApp
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple, UseSynchronizationContext = false)]
     public class POGService : IPOGService
     {
-        private readonly Dictionary<Client, IPOGCallback> clients = new Dictionary<Client, IPOGCallback>();
+        private readonly Dictionary<Client, IPOGCallback> clients = new Dictionary<Client, IPOGCallback>()
+        {
+            { new Client() { Id = 1, Name = "Charlotte", LoggedIn = false }, null },
+            { new Client() { Id = 2, Name = "Wouter", LoggedIn = false }, null }
+        };
 
         private readonly object syncObj = new object();
 
@@ -42,6 +46,7 @@ namespace POGApp
                 foreach (Client key in clients.Keys)
                 {
                     IPOGCallback callback = clients[key];
+                    if (callback == null) continue;
                     try
                     {
                         List<Client> clientList = new List<Client>(clients.Keys);
@@ -72,6 +77,7 @@ namespace POGApp
             {
                 foreach (IPOGCallback callback in clients.Values)
                 {
+                    if (callback == null) continue;
                     callback.Receive(msg);
                 }
             }
@@ -84,6 +90,7 @@ namespace POGApp
                 if (rec.Name == receiver.Name)
                 {
                     IPOGCallback callback = clients[rec];
+                    if (callback == null) continue;
                     callback.ReceiveWhisper(msg, rec);
 
                     foreach (Client sender in clients.Keys)
@@ -91,6 +98,7 @@ namespace POGApp
                         if (sender.Id == msg.Sender)
                         {
                             IPOGCallback senderCallback = clients[sender];
+                            if (senderCallback == null) continue;
                             senderCallback.ReceiveWhisper(msg, rec);
                             return;
                         }
@@ -105,6 +113,7 @@ namespace POGApp
             {
                 foreach (IPOGCallback callback in clients.Values)
                 {
+                    if (callback == null) continue;
                     callback.IsWritingCallback(client);
                 }
             }
@@ -123,6 +132,7 @@ namespace POGApp
                     };
 
                     IPOGCallback rcvrCallback = clients[rcvr];
+                    if (rcvrCallback == null) continue;
                     rcvrCallback.ReceiveWhisper(msg, receiver);
                     rcvrCallback.ReceiverFile(fileMsg, receiver);
 
@@ -131,6 +141,7 @@ namespace POGApp
                         if (sender.Id == fileMsg.Sender)
                         {
                             IPOGCallback sndrCallback = clients[sender];
+                            if (sndrCallback == null) continue;
                             sndrCallback.ReceiveWhisper(msg, receiver);
                             return true;
                         }
@@ -154,6 +165,7 @@ namespace POGApp
                             if (client.Id != c2.Id)
                             {
                                 IPOGCallback callback = clients[c2];
+                                if (callback == null) continue;
                                 List<Client> clientList = new List<Client>(clients.Keys);
                                 callback.RefreshClients(clientList);
                                 callback.UserLeave(client);

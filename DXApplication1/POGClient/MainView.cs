@@ -4,6 +4,7 @@ using DevExpress.Utils.Drawing.Helpers;
 using DevExpress.Utils.MVVM.Services;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Base;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -61,15 +62,18 @@ namespace POGClient
 
             fluent.SetTrigger(m => m.LoggedIn, logged => 
             {
-                if (logged)
+                xtraTabControl.Invoke(new Action(() => 
                 {
-                    clientId = fluent.ViewModel.Client.Id;
-                    xtraTabControl.SelectedTabPageIndex = 1;
-                }
-                else
-                {
-                    xtraTabControl.SelectedTabPageIndex = 0;
-                }
+                    if (logged)
+                    {
+                        clientId = fluent.ViewModel.Client.Id;
+                        xtraTabControl.SelectedTabPageIndex = 1;
+                    }
+                    else
+                    {
+                        xtraTabControl.SelectedTabPageIndex = 0;
+                    }
+                }));
             });
 
             fluent.SetBinding(meMessageText, me => me.EditValue, m => m.MessageText);

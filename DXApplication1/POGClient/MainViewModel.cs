@@ -25,7 +25,7 @@ namespace POGClient
         public virtual bool Connected { get; protected set; }
         public virtual bool LoggedIn { get; protected set; }
         public virtual DateTime LastCommunication { get; protected set; }
-        public virtual BindingList<Client> Clients { get; protected set; }
+        public virtual BindingList<Client> Clients { get; protected set; } = new BindingList<Client>();
         public virtual BindingList<Message> Messages { get; protected set; }
 
         public virtual string MessageText { get; set; }
@@ -33,20 +33,11 @@ namespace POGClient
         // Services
         public virtual IMessageBoxService MessageBoxService { get { throw new NotImplementedException(); } }
         public virtual IDispatcherService DispatcherService { get { throw new NotImplementedException(); } }
-
-        private Client tmpClient;
+        
         public virtual Client Client
         {
             get
             {
-                if (Clients == null)
-                {
-                    if (tmpClient == null)
-                    {
-                        tmpClient = new Client() { Id = ClientSettings.Cs.ClientId };
-                    }
-                    return tmpClient;
-                }
                 return Clients.FirstOrDefault(c => c.Id == ClientSettings.Cs.ClientId);
             }
             protected set { }
@@ -54,9 +45,6 @@ namespace POGClient
 
         public virtual void Start()
         {
-            // Settings
-            ClientSettings.Cs.Initialize();
-
             // Service
             CreateService();
 
@@ -110,12 +98,8 @@ namespace POGClient
                 Task.Factory.StartNew((dispatcher) =>
                 {
                     bool loggedIn = serviceClient.Connect(Client);
-                    if (loggedIn)
-                    {
-                        ClientSettings.Cs.ClientName = Client.Name;
-                        ClientSettings.Cs.ClientInfo = Client.Info;
-                        Client.LoggedIn = true;
-                    }
+                    ClientSettings.Cs.ClientInfo = Client.Info;
+                    ClientSettings.Cs.ClientName = Client.Name;
                     ((IDispatcherService)dispatcher).BeginInvoke(() =>
                     {
                         LoggedIn = loggedIn;

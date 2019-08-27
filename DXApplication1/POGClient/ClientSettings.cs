@@ -15,6 +15,7 @@ namespace POGClient
         private ClientSettings()
         {
             iniFile = new IniFile(@"Config\config.ini");
+            Initialize();
         }
 
         // Base properties
@@ -31,7 +32,7 @@ namespace POGClient
         private string viewSkin;
         private bool showExceptions;
 
-        public void Initialize()
+        private void Initialize()
         {
             url = iniFile.ReadString("Service", "address");
 
