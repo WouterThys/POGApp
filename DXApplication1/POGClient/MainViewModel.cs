@@ -25,6 +25,7 @@ namespace POGClient
         public virtual bool Connected { get; protected set; }
         public virtual bool LoggedIn { get; protected set; }
         public virtual DateTime LastCommunication { get; protected set; }
+        public virtual Client Client { get; protected set; }
         public virtual BindingList<Client> Clients { get; protected set; } = new BindingList<Client>();
         public virtual BindingList<Message> Messages { get; protected set; }
 
@@ -33,14 +34,26 @@ namespace POGClient
         // Services
         public virtual IMessageBoxService MessageBoxService { get { throw new NotImplementedException(); } }
         public virtual IDispatcherService DispatcherService { get { throw new NotImplementedException(); } }
-        
-        public virtual Client Client
+       
+
+        private void UpdateClients(IEnumerable<Client> newClients)
         {
-            get
+            foreach (Client newC in newClients)
             {
-                return Clients.FirstOrDefault(c => c.Id == ClientSettings.Cs.ClientId);
+                Client oldC = Clients.FirstOrDefault(c => c.Id == newC.Id);
+                if (oldC != null)
+                {
+                    oldC.CopyFrom(newC);
+                }
+                else
+                {
+                    Clients.Add(newC);
+                }
             }
-            protected set { }
+            if (Client == null)
+            {
+                Client = Clients.FirstOrDefault(c => c.Id == ClientSettings.Cs.ClientId);
+            }
         }
 
         public virtual void Start()
@@ -88,7 +101,7 @@ namespace POGClient
 
         public virtual bool CanLogIn()
         {
-            return Connected && !string.IsNullOrEmpty(Client.Name);
+            return Connected && Client != null && !string.IsNullOrEmpty(Client.Name);
         }
 
         public virtual void LogIn()
@@ -98,8 +111,6 @@ namespace POGClient
                 Task.Factory.StartNew((dispatcher) =>
                 {
                     bool loggedIn = serviceClient.Connect(Client);
-                    ClientSettings.Cs.ClientInfo = Client.Info;
-                    ClientSettings.Cs.ClientName = Client.Name;
                     ((IDispatcherService)dispatcher).BeginInvoke(() =>
                     {
                         LoggedIn = loggedIn;
@@ -169,9 +180,8 @@ namespace POGClient
                     List<Client> newClients = c.GetClients();
                     ((IDispatcherService)dispatcher).BeginInvoke(() =>
                     {
-                        Clients = new BindingList<Client>(newClients);
+                        UpdateClients(newClients);
                         UpdateCommands();
-                        this.RaisePropertyChanged(m => m.Client);
                     });
                 }, DispatcherService);
 
@@ -257,7 +267,7 @@ namespace POGClient
                 }
                 ((IDispatcherService)dispatcher).BeginInvoke(() =>
                 {
-                    Clients = new BindingList<Client>(newClients);
+                    UpdateClients(newClients);
                 });
             }, DispatcherService);
         }

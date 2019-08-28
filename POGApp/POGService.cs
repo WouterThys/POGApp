@@ -55,7 +55,6 @@ namespace POGApp
                     }
                     catch
                     {
-                        clients.Remove(key);
                         return false;
                     }
                 }

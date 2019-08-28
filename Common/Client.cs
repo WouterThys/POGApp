@@ -18,8 +18,6 @@ namespace Common
         private DateTime time;
         private bool loggedIn;
 
-        private Image image;
-
 
         public override bool Equals(object obj)
         {
@@ -47,6 +45,15 @@ namespace Common
             return !(client1 == client2);
         }
 
+        public void CopyFrom(Client client)
+        {
+            if (client == null) return;
+            Name = client.Name;
+            Info = client.Info;
+            Avatar = client.Avatar;
+            Time = client.Time;
+            LoggedIn = client.LoggedIn;
+        }
 
         [DataMember]
         public long Id
@@ -92,12 +99,6 @@ namespace Common
         {
             get { return loggedIn; }
             set { loggedIn = value; OnPropertyChanged("LoggedIn"); }
-        }
-
-        public Image Image
-        {
-            get { return image; }
-            set { image = value; }
         }
     }
 }

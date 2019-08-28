@@ -663,6 +663,11 @@
             // 
             // tileView
             // 
+            this.tileView.Appearance.ItemSelected.BackColor = System.Drawing.Color.Transparent;
+            this.tileView.Appearance.ItemSelected.BackColor2 = System.Drawing.Color.Transparent;
+            this.tileView.Appearance.ItemSelected.BorderColor = System.Drawing.Color.Transparent;
+            this.tileView.Appearance.ItemSelected.Options.UseBackColor = true;
+            this.tileView.Appearance.ItemSelected.Options.UseBorderColor = true;
             this.tileView.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colId,
             this.colName,
@@ -670,9 +675,11 @@
             this.colAvatar,
             this.colTime,
             this.colLoggedIn});
+            this.tileView.FocusBorderColor = System.Drawing.Color.Transparent;
             this.tileView.GridControl = this.gridControl;
             this.tileView.Name = "tileView";
             this.tileView.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
+            this.tileView.OptionsTiles.HighlightFocusedTileStyle = DevExpress.XtraGrid.Views.Tile.HighlightFocusedTileStyle.None;
             this.tileView.OptionsTiles.IndentBetweenGroups = 0;
             this.tileView.OptionsTiles.IndentBetweenItems = 0;
             this.tileView.OptionsTiles.ItemSize = new System.Drawing.Size(416, 62);

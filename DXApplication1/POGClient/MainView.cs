@@ -40,9 +40,11 @@ namespace POGClient
             gvMessages.OptionsBehavior.Editable = false;
 
             tileView.ItemCustomize += TileView_ItemCustomize;
-            gvMessages.CustomDrawCell += GridView_CustomDrawCell;
+            gvMessages.RowCellStyle += GvMessages_RowCellStyle;
+            //gvMessages.CustomDrawCell += GridView_CustomDrawCell;
 
-            for (int i = 0; i <icAvatars.Images.Count; i++)
+
+            for (int i = 0; i < icAvatars.Images.Count; i++)
             {
                 icbAvatar.Properties.Items.Add(new ImageComboBoxItem("", i, i));
             }
@@ -103,7 +105,7 @@ namespace POGClient
             e.Item.Elements[3].Text = string.Empty;
         }
 
-        private void GridView_CustomDrawCell(object sender, RowCellCustomDrawEventArgs e)
+        private void GvMessages_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
         {
             Common.Message m = (Common.Message)gvMessages.GetRow(e.RowHandle);
             if (m != null)
@@ -111,22 +113,42 @@ namespace POGClient
                 if (m.Sender == clientId)
                 {
                     e.Appearance.TextOptions.HAlignment = HorzAlignment.Far;
-                    e.Graphics.DrawImage(new Bitmap(@"left.png"), e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height);
-                    Rectangle bounds = e.Bounds;
-                    bounds.Offset(-30, 0);
-                    e.Cache.DrawString(e.DisplayText, e.Appearance.Font, Brushes.Black, bounds, e.Appearance.GetStringFormat());
+                    e.Appearance.ForeColor = Color.Blue;
                 }
                 else
                 {
-                    Rectangle bounds = e.Bounds;
-                    bounds.Offset(30, 0);
                     e.Appearance.TextOptions.HAlignment = HorzAlignment.Near;
-                    e.Graphics.DrawImage(new Bitmap(@"right.png"), e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height);
-                    e.Cache.DrawString(e.DisplayText, e.Appearance.Font, Brushes.Black, bounds, e.Appearance.GetStringFormat());
+                    e.Appearance.ForeColor = Color.Green;
                 }
-                e.Handled = true;
             }
         }
+
+        //private void GridView_CustomDrawCell(object sender, RowCellCustomDrawEventArgs e)
+        //{
+        //    Common.Message m = (Common.Message)gvMessages.GetRow(e.RowHandle);
+        //    if (m != null)
+        //    {
+        //        if (m.Sender == clientId)
+        //        {
+        //            e.Appearance.TextOptions.HAlignment = HorzAlignment.Far;
+        //            e.Appearance.ForeColor = Color.Blue;
+        //            //e.Graphics.DrawImage(new Bitmap(@"left.png"), e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height);
+        //            //Rectangle bounds = e.Bounds;
+        //            //bounds.Offset(-30, 0);
+        //            //e.Cache.DrawString(e.DisplayText, e.Appearance.Font, Brushes.Black, bounds, e.Appearance.GetStringFormat());
+        //        }
+        //        else
+        //        {
+        //            //Rectangle bounds = e.Bounds;
+        //            //bounds.Offset(30, 0);
+        //            e.Appearance.TextOptions.HAlignment = HorzAlignment.Near;
+        //            e.Appearance.ForeColor = Color.Green;
+        //            //e.Graphics.DrawImage(new Bitmap(@"right.png"), e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height);
+        //            //e.Cache.DrawString(e.DisplayText, e.Appearance.Font, Brushes.Black, bounds, e.Appearance.GetStringFormat());
+        //        }
+        //        e.Handled = true;
+        //    }
+        //}
 
     }
 }
