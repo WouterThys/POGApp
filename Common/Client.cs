@@ -17,6 +17,7 @@ namespace Common
         private int avatar;
         private DateTime time;
         private bool loggedIn;
+        private Color color;
 
 
         public override bool Equals(object obj)
@@ -53,6 +54,7 @@ namespace Common
             Avatar = client.Avatar;
             Time = client.Time;
             LoggedIn = client.LoggedIn;
+            Color = client.Color;
         }
 
         [DataMember]
@@ -99,6 +101,13 @@ namespace Common
         {
             get { return loggedIn; }
             set { loggedIn = value; OnPropertyChanged("LoggedIn"); }
+        }
+
+        [DataMember]
+        public Color Color
+        {
+            get { return color; }
+            set { color = value; OnPropertyChanged("Color"); }
         }
     }
 }

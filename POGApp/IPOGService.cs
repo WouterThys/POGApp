@@ -17,6 +17,9 @@ namespace POGApp
         [OperationContract(IsOneWay = false)]
         List<Client> GetClients();
 
+        [OperationContract(IsOneWay = false)]
+        List<Message> GetMessages();
+
         [OperationContract(IsOneWay = true)]
         void Say(Message msg);
 

@@ -28,6 +28,7 @@
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="4e411b14-4fde-46be-8d38-620eee68fab0" SourceId="1" SourceUrl="net.tcp://localhost:9001/POGHost/netTcpCenterMex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="339a1804-bfbc-48c8-b09d-76430430b17d" SourceId="1" SourceUrl="net.tcp://localhost:9001/POGHost/netTcpCenterMex" />
     <MetadataFile FileName="Common.xsd" MetadataType="Schema" ID="835af694-c64a-4c14-9d22-f9e9bed104a4" SourceId="1" SourceUrl="net.tcp://localhost:9001/POGHost/netTcpCenterMex" />
+    <MetadataFile FileName="System.Drawing.xsd" MetadataType="Schema" ID="794116e5-50c2-44c0-a49c-e9c4f194e0b4" SourceId="1" SourceUrl="net.tcp://localhost:9001/POGHost/netTcpCenterMex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

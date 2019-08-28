@@ -37,13 +37,11 @@ namespace POGClient
             xtraTabControl.ShowTabHeader = DefaultBoolean.False;
             xtraTabControl.SelectedTabPageIndex = 0;
 
-            gvMessages.OptionsBehavior.Editable = false;
-
             tileView.ItemCustomize += TileView_ItemCustomize;
+
+            gvMessages.OptionsBehavior.Editable = false;
             gvMessages.RowCellStyle += GvMessages_RowCellStyle;
-            //gvMessages.CustomDrawCell += GridView_CustomDrawCell;
-
-
+            
             for (int i = 0; i < icAvatars.Images.Count; i++)
             {
                 icbAvatar.Properties.Items.Add(new ImageComboBoxItem("", i, i));
@@ -61,6 +59,9 @@ namespace POGClient
             fluent.SetObjectDataSourceBinding(bsClient, m => m.Client, m => m.UpdateCommands());
             fluent.SetObjectDataSourceBinding(bsClients, m => m.Clients, m => m.UpdateCommands());
             fluent.SetObjectDataSourceBinding(bsMessages, m => m.Messages);
+            
+            fluent.WithEvent<KeyEventArgs>(meMessageText, "KeyDown").EventToCommand(
+                m => m.KeyPressed(null));
 
             fluent.SetTrigger(m => m.LoggedIn, logged => 
             {
@@ -113,11 +114,13 @@ namespace POGClient
                 if (m.Sender == clientId)
                 {
                     e.Appearance.TextOptions.HAlignment = HorzAlignment.Far;
+                    e.Appearance.FontStyleDelta = FontStyle.Bold;
                     e.Appearance.ForeColor = Color.Blue;
                 }
                 else
                 {
                     e.Appearance.TextOptions.HAlignment = HorzAlignment.Near;
+                    e.Appearance.FontStyleDelta = FontStyle.Italic;
                     e.Appearance.ForeColor = Color.Green;
                 }
             }

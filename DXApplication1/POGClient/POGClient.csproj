@@ -77,6 +77,9 @@
     <Content Include="left.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Connected Services\ServiceReference\System.Drawing.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Resources\exit.png" />
     <None Include="Resources\exit1.png" />
     <Content Include="right.png">

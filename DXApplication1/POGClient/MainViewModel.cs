@@ -11,7 +11,6 @@ using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
 
-
 namespace POGClient
 {
     [POCOViewModel()]
@@ -34,7 +33,7 @@ namespace POGClient
         // Services
         public virtual IMessageBoxService MessageBoxService { get { throw new NotImplementedException(); } }
         public virtual IDispatcherService DispatcherService { get { throw new NotImplementedException(); } }
-       
+
 
         private void UpdateClients(IEnumerable<Client> newClients)
         {
@@ -66,6 +65,7 @@ namespace POGClient
             {
                 Messages = new BindingList<Message>();
                 FetchAllClients();
+                FetchAllMessages();
             }
         }
 
@@ -148,6 +148,20 @@ namespace POGClient
             this.RaiseCanExecuteChanged(x => x.SendMessage());
         }
 
+        public virtual void KeyPressed(System.Windows.Forms.KeyEventArgs keyEvent)
+        {
+            if (keyEvent == null) return;
+
+
+            if (keyEvent.KeyCode == System.Windows.Forms.Keys.Enter)
+            {
+                if (CanSendMessage())
+                {
+                    SendMessage();
+                }
+            }
+        }
+
         public virtual bool CanSendMessage()
         {
             return Connected && Client != null && Client.Id > 0 && !string.IsNullOrEmpty(MessageText);
@@ -162,7 +176,7 @@ namespace POGClient
                 Time = DateTime.Now
             };
 
-            Call(c => 
+            Call(c =>
             {
                 Task.Factory.StartNew(() =>
                 {
@@ -187,7 +201,23 @@ namespace POGClient
 
             });
         }
-        
+
+        private void FetchAllMessages()
+        {
+            Call(c =>
+            {
+                Task.Factory.StartNew((dispatcher) =>
+                {
+                    List<Message> messages = c.GetMessages();
+                    ((IDispatcherService)dispatcher).BeginInvoke(() =>
+                    {
+                        Messages = new BindingList<Message>(messages);
+                    });
+                }, DispatcherService);
+
+            });
+        }
+
         #region WebCall Helpers
 
         private void ShowWebCallError(string error, Exception e)
@@ -274,6 +304,7 @@ namespace POGClient
 
         public void Receive(Message msg)
         {
+            msg.Color = Client.Color;
             Messages.Add(msg);
             if (msg.Sender == Client.Id)
             {

@@ -15,6 +15,7 @@
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/Common" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IPOGService_Connect_InputMessage">
@@ -28,6 +29,12 @@
   </wsdl:message>
   <wsdl:message name="IPOGService_GetClients_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOGService_GetMessages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessages" />
+  </wsdl:message>
+  <wsdl:message name="IPOGService_GetMessages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetMessagesResponse" />
   </wsdl:message>
   <wsdl:message name="IPOGService_Say_InputMessage">
     <wsdl:part name="parameters" element="tns:Say" />
@@ -76,6 +83,10 @@
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetClients">
       <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/GetClients" message="tns:IPOGService_GetClients_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/GetClientsResponse" message="tns:IPOGService_GetClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetMessages">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/GetMessages" message="tns:IPOGService_GetMessages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/GetMessagesResponse" message="tns:IPOGService_GetMessages_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Say">
       <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/Say" message="tns:IPOGService_Say_InputMessage" />
@@ -130,6 +141,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetClients">
       <soap12:operation soapAction="http://tempuri.org/IPOGService/GetClients" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMessages">
+      <soap12:operation soapAction="http://tempuri.org/IPOGService/GetMessages" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

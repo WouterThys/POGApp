@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Common" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Common" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
   <xs:complexType name="Client">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:BaseClass">
         <xs:sequence>
           <xs:element minOccurs="0" name="Avatar" type="xs:int" />
+          <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="Color" type="q1:Color" />
           <xs:element minOccurs="0" name="Id" type="xs:long" />
           <xs:element minOccurs="0" name="Info" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="LoggedIn" type="xs:boolean" />
@@ -25,10 +27,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfClient" nillable="true" type="tns:ArrayOfClient" />
+  <xs:complexType name="ArrayOfMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Message" nillable="true" type="tns:Message" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMessage" nillable="true" type="tns:ArrayOfMessage" />
   <xs:complexType name="Message">
     <xs:sequence>
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="Color" type="q2:Color" />
       <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Sender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sender" type="xs:long" />
       <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>
@@ -37,7 +46,7 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="Data" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="FileName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Sender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sender" type="xs:long" />
       <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>

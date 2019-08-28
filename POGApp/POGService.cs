@@ -17,6 +17,8 @@ namespace POGApp
             { new Client() { Id = 2, Name = "Wouter", LoggedIn = false }, null }
         };
 
+        private readonly List<Message> messages = new List<Message>();
+
         private readonly object syncObj = new object();
 
         public IPOGCallback CurrentCallback
@@ -35,11 +37,7 @@ namespace POGApp
                 Client knownClient = clients.Keys.FirstOrDefault(c => c.Id == client.Id);
                 if (knownClient != null)
                 {
-                    knownClient.Name = client.Name;
-                    knownClient.Info = client.Info;
-                    knownClient.Avatar = client.Avatar;
-                    knownClient.Time = DateTime.Now;
-                    knownClient.LoggedIn = client.LoggedIn;
+                    knownClient.CopyFrom(client);
                 }
                 clients[client] = CurrentCallback;
                 
@@ -53,8 +51,9 @@ namespace POGApp
                         callback.RefreshClients(clientList);
                         callback.UserJoin(client);
                     }
-                    catch
+                    catch (Exception e)
                     {
+                        Console.WriteLine(e);
                         return false;
                     }
                 }
@@ -70,10 +69,31 @@ namespace POGApp
             }
         }
 
+        public List<Message> GetMessages()
+        {
+            lock(syncObj)
+            {
+                return new List<Message>(messages);
+            }
+        }
+
+        private void AddMessage(Message msg)
+        {
+            lock(syncObj)
+            {
+                messages.Add(msg);
+                if (messages.Count > 200)
+                {
+                    messages.RemoveAt(0);
+                }
+            }
+        }
+
         public void Say(Message msg)
         {
             lock (syncObj)
             {
+                AddMessage(msg);
                 foreach (IPOGCallback callback in clients.Values)
                 {
                     if (callback == null) continue;

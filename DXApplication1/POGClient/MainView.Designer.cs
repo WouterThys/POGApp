@@ -60,7 +60,9 @@
             this.gcMessages = new DevExpress.XtraGrid.GridControl();
             this.bsMessages = new System.Windows.Forms.BindingSource(this.components);
             this.gvMessages = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colSender = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colContent = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTime1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.meMessageText = new DevExpress.XtraEditors.MemoEdit();
             this.btnSendMessage = new DevExpress.XtraEditors.SimpleButton();
@@ -280,23 +282,39 @@
             // gvMessages
             // 
             this.gvMessages.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colContent});
+            this.colSender,
+            this.colContent,
+            this.colTime1});
             this.gvMessages.GridControl = this.gcMessages;
             this.gvMessages.Name = "gvMessages";
-            this.gvMessages.OptionsView.ShowColumnHeaders = false;
             this.gvMessages.OptionsView.ShowGroupExpandCollapseButtons = false;
             this.gvMessages.OptionsView.ShowGroupPanel = false;
             this.gvMessages.OptionsView.ShowIndicator = false;
             this.gvMessages.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
             // 
+            // colSender
+            // 
+            this.colSender.FieldName = "Sender";
+            this.colSender.MinWidth = 25;
+            this.colSender.Name = "colSender";
+            this.colSender.Width = 94;
+            // 
             // colContent
             // 
+            this.colContent.Caption = "POG Messages";
             this.colContent.FieldName = "Content";
             this.colContent.MinWidth = 25;
             this.colContent.Name = "colContent";
             this.colContent.Visible = true;
             this.colContent.VisibleIndex = 0;
             this.colContent.Width = 94;
+            // 
+            // colTime1
+            // 
+            this.colTime1.FieldName = "Time";
+            this.colTime1.MinWidth = 25;
+            this.colTime1.Name = "colTime1";
+            this.colTime1.Width = 94;
             // 
             // panelControl1
             // 
@@ -762,10 +780,11 @@
             this.Controls.Add(this.xtraTabControl);
             this.Controls.Add(this.gridControl);
             this.Controls.Add(this.ribbonControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainView";
             this.Ribbon = this.ribbonControl1;
-            this.Text = "MainView";
+            this.Text = "POG Chat";
             ((System.ComponentModel.ISupportInitialize)(this.riCeLoggedIn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icLogStates)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riPeImage)).EndInit();
@@ -853,13 +872,15 @@
         private DevExpress.XtraEditors.MemoEdit meMessageText;
         private DevExpress.XtraEditors.SimpleButton btnSendMessage;
         private DevExpress.XtraGrid.GridControl gcMessages;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvMessages;
         private System.Windows.Forms.BindingSource bsMessages;
-        private DevExpress.XtraGrid.Columns.GridColumn colContent;
         private DevExpress.Utils.ImageCollection icAvatars;
         private DevExpress.XtraEditors.ImageComboBoxEdit icbAvatar;
         private DevExpress.XtraBars.BarButtonItem bbiLogOut;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvMessages;
+        private DevExpress.XtraGrid.Columns.GridColumn colSender;
+        private DevExpress.XtraGrid.Columns.GridColumn colContent;
+        private DevExpress.XtraGrid.Columns.GridColumn colTime1;
     }
 }
 
