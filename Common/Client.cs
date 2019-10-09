@@ -11,6 +11,9 @@ namespace Common
     [DataContract]
     public class Client : BaseClass, IEquatable<Client>
     {
+        public const long C_ID = 1;
+        public const long W_ID = 2;
+
         private long id;
         private string name;
         private string info;

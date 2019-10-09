@@ -16,10 +16,16 @@ namespace POGClient.ServiceReference {
     public interface IPOGService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/Connect", ReplyAction="http://tempuri.org/IPOGService/ConnectResponse")]
-        bool Connect(Common.Client client);
+        void Connect(Common.Client client);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/Connect", ReplyAction="http://tempuri.org/IPOGService/ConnectResponse")]
-        System.Threading.Tasks.Task<bool> ConnectAsync(Common.Client client);
+        System.Threading.Tasks.Task ConnectAsync(Common.Client client);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsTerminating=true, Action="http://tempuri.org/IPOGService/Disconnect")]
+        void Disconnect(long id);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsTerminating=true, Action="http://tempuri.org/IPOGService/Disconnect")]
+        System.Threading.Tasks.Task DisconnectAsync(long id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/GetClients", ReplyAction="http://tempuri.org/IPOGService/GetClientsResponse")]
         System.Collections.Generic.List<Common.Client> GetClients();
@@ -39,29 +45,11 @@ namespace POGClient.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/Say")]
         System.Threading.Tasks.Task SayAsync(Common.Message msg);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/Whisper")]
-        void Whisper(Common.Message msg, Common.Client receiver);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/Whisper")]
-        System.Threading.Tasks.Task WhisperAsync(Common.Message msg, Common.Client receiver);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/IsWriting")]
+        void IsWriting(long client);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/IsWriting")]
-        void IsWriting(Common.Client client);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/IsWriting")]
-        System.Threading.Tasks.Task IsWritingAsync(Common.Client client);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/SendFile", ReplyAction="http://tempuri.org/IPOGService/SendFileResponse")]
-        bool SendFile(Common.FileMessage fileMsg, Common.Client receiver);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/SendFile", ReplyAction="http://tempuri.org/IPOGService/SendFileResponse")]
-        System.Threading.Tasks.Task<bool> SendFileAsync(Common.FileMessage fileMsg, Common.Client receiver);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsTerminating=true, Action="http://tempuri.org/IPOGService/Disconnect")]
-        void Disconnect(Common.Client client);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsTerminating=true, Action="http://tempuri.org/IPOGService/Disconnect")]
-        System.Threading.Tasks.Task DisconnectAsync(Common.Client client);
+        System.Threading.Tasks.Task IsWritingAsync(long client);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -73,14 +61,8 @@ namespace POGClient.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/Receive")]
         void Receive(Common.Message msg);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/ReceiveWhisper")]
-        void ReceiveWhisper(Common.Message msg, Common.Client receiver);
-        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/IsWritingCallback")]
-        void IsWritingCallback(Common.Client client);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/ReceiverFile")]
-        void ReceiverFile(Common.FileMessage fileMsg, Common.Client receiver);
+        void IsWritingCallback(long client);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/UserJoin")]
         void UserJoin(Common.Client client);
@@ -117,12 +99,20 @@ namespace POGClient.ServiceReference {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public bool Connect(Common.Client client) {
-            return base.Channel.Connect(client);
+        public void Connect(Common.Client client) {
+            base.Channel.Connect(client);
         }
         
-        public System.Threading.Tasks.Task<bool> ConnectAsync(Common.Client client) {
+        public System.Threading.Tasks.Task ConnectAsync(Common.Client client) {
             return base.Channel.ConnectAsync(client);
+        }
+        
+        public void Disconnect(long id) {
+            base.Channel.Disconnect(id);
+        }
+        
+        public System.Threading.Tasks.Task DisconnectAsync(long id) {
+            return base.Channel.DisconnectAsync(id);
         }
         
         public System.Collections.Generic.List<Common.Client> GetClients() {
@@ -149,36 +139,12 @@ namespace POGClient.ServiceReference {
             return base.Channel.SayAsync(msg);
         }
         
-        public void Whisper(Common.Message msg, Common.Client receiver) {
-            base.Channel.Whisper(msg, receiver);
-        }
-        
-        public System.Threading.Tasks.Task WhisperAsync(Common.Message msg, Common.Client receiver) {
-            return base.Channel.WhisperAsync(msg, receiver);
-        }
-        
-        public void IsWriting(Common.Client client) {
+        public void IsWriting(long client) {
             base.Channel.IsWriting(client);
         }
         
-        public System.Threading.Tasks.Task IsWritingAsync(Common.Client client) {
+        public System.Threading.Tasks.Task IsWritingAsync(long client) {
             return base.Channel.IsWritingAsync(client);
-        }
-        
-        public bool SendFile(Common.FileMessage fileMsg, Common.Client receiver) {
-            return base.Channel.SendFile(fileMsg, receiver);
-        }
-        
-        public System.Threading.Tasks.Task<bool> SendFileAsync(Common.FileMessage fileMsg, Common.Client receiver) {
-            return base.Channel.SendFileAsync(fileMsg, receiver);
-        }
-        
-        public void Disconnect(Common.Client client) {
-            base.Channel.Disconnect(client);
-        }
-        
-        public System.Threading.Tasks.Task DisconnectAsync(Common.Client client) {
-            return base.Channel.DisconnectAsync(client);
         }
     }
 }

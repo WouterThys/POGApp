@@ -10,8 +10,13 @@
   </xs:element>
   <xs:element name="ConnectResponse">
     <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Disconnect">
+    <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ConnectResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="id" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -46,91 +51,45 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Whisper">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="msg" nillable="true" type="q5:Message" />
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="receiver" nillable="true" type="q6:Client" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="IsWriting">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="client" nillable="true" type="q7:Client" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SendFile">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="fileMsg" nillable="true" type="q8:FileMessage" />
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="receiver" nillable="true" type="q9:Client" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SendFileResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="SendFileResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="Disconnect">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="client" nillable="true" type="q10:Client" />
+        <xs:element minOccurs="0" name="client" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RefreshClients">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="clients" nillable="true" type="q11:ArrayOfClient" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="clients" nillable="true" type="q5:ArrayOfClient" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="Receive">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="msg" nillable="true" type="q12:Message" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ReceiveWhisper">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="msg" nillable="true" type="q13:Message" />
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="receiver" nillable="true" type="q14:Client" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="msg" nillable="true" type="q6:Message" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="IsWritingCallback">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="client" nillable="true" type="q15:Client" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="ReceiverFile">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="fileMsg" nillable="true" type="q16:FileMessage" />
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="receiver" nillable="true" type="q17:Client" />
+        <xs:element minOccurs="0" name="client" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UserJoin">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="client" nillable="true" type="q18:Client" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="client" nillable="true" type="q7:Client" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UserLeave">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="client" nillable="true" type="q19:Client" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="client" nillable="true" type="q8:Client" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

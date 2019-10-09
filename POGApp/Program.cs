@@ -70,9 +70,33 @@ namespace POGApp
 
         
 
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Run(new Program());
+            //Run(new Program());
+
+            var host = new ServiceHost(typeof(POGService));
+            try
+            {
+                host.Open();
+                foreach (Uri uri in host.BaseAddresses)
+                {
+                    Console.WriteLine(" - Host opened at " + uri.AbsoluteUri);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error opening host: " + ex);
+            }
+            finally
+            {
+                if (host.State == CommunicationState.Opened)
+                {
+                    Console.WriteLine("Opened");
+                    //labelStatus.Content = "Opened";
+                    //buttonStop.IsEnabled = true;
+                }
+            }
+            Console.ReadLine();
         }
 
         private void InitializeComponent()

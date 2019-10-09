@@ -24,6 +24,9 @@
   <wsdl:message name="IPOGService_Connect_OutputMessage">
     <wsdl:part name="parameters" element="tns:ConnectResponse" />
   </wsdl:message>
+  <wsdl:message name="IPOGService_Disconnect_InputMessage">
+    <wsdl:part name="parameters" element="tns:Disconnect" />
+  </wsdl:message>
   <wsdl:message name="IPOGService_GetClients_InputMessage">
     <wsdl:part name="parameters" element="tns:GetClients" />
   </wsdl:message>
@@ -39,20 +42,8 @@
   <wsdl:message name="IPOGService_Say_InputMessage">
     <wsdl:part name="parameters" element="tns:Say" />
   </wsdl:message>
-  <wsdl:message name="IPOGService_Whisper_InputMessage">
-    <wsdl:part name="parameters" element="tns:Whisper" />
-  </wsdl:message>
   <wsdl:message name="IPOGService_IsWriting_InputMessage">
     <wsdl:part name="parameters" element="tns:IsWriting" />
-  </wsdl:message>
-  <wsdl:message name="IPOGService_SendFile_InputMessage">
-    <wsdl:part name="parameters" element="tns:SendFile" />
-  </wsdl:message>
-  <wsdl:message name="IPOGService_SendFile_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SendFileResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPOGService_Disconnect_InputMessage">
-    <wsdl:part name="parameters" element="tns:Disconnect" />
   </wsdl:message>
   <wsdl:message name="IPOGService_RefreshClients_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:RefreshClients" />
@@ -60,14 +51,8 @@
   <wsdl:message name="IPOGService_Receive_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:Receive" />
   </wsdl:message>
-  <wsdl:message name="IPOGService_ReceiveWhisper_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:ReceiveWhisper" />
-  </wsdl:message>
   <wsdl:message name="IPOGService_IsWritingCallback_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:IsWritingCallback" />
-  </wsdl:message>
-  <wsdl:message name="IPOGService_ReceiverFile_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:ReceiverFile" />
   </wsdl:message>
   <wsdl:message name="IPOGService_UserJoin_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:UserJoin" />
@@ -80,6 +65,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/Connect" message="tns:IPOGService_Connect_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/ConnectResponse" message="tns:IPOGService_Connect_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation msc:isInitiating="true" msc:isTerminating="true" name="Disconnect">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/Disconnect" message="tns:IPOGService_Disconnect_InputMessage" />
+    </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetClients">
       <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/GetClients" message="tns:IPOGService_GetClients_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/GetClientsResponse" message="tns:IPOGService_GetClients_OutputMessage" />
@@ -91,18 +79,8 @@
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Say">
       <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/Say" message="tns:IPOGService_Say_InputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Whisper">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/Whisper" message="tns:IPOGService_Whisper_InputMessage" />
-    </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="IsWriting">
       <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/IsWriting" message="tns:IPOGService_IsWriting_InputMessage" />
-    </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="SendFile">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/SendFile" message="tns:IPOGService_SendFile_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/SendFileResponse" message="tns:IPOGService_SendFile_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="true" name="Disconnect">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/Disconnect" message="tns:IPOGService_Disconnect_InputMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="RefreshClients">
       <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/RefreshClients" message="tns:IPOGService_RefreshClients_OutputCallbackMessage" />
@@ -110,14 +88,8 @@
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Receive">
       <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/Receive" message="tns:IPOGService_Receive_OutputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ReceiveWhisper">
-      <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/ReceiveWhisper" message="tns:IPOGService_ReceiveWhisper_OutputCallbackMessage" />
-    </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="IsWritingCallback">
       <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/IsWritingCallback" message="tns:IPOGService_IsWritingCallback_OutputCallbackMessage" />
-    </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="ReceiverFile">
-      <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/ReceiverFile" message="tns:IPOGService_ReceiverFile_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UserJoin">
       <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/UserJoin" message="tns:IPOGService_UserJoin_OutputCallbackMessage" />
@@ -138,6 +110,12 @@
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Disconnect">
+      <soap12:operation soapAction="http://tempuri.org/IPOGService/Disconnect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="GetClients">
       <soap12:operation soapAction="http://tempuri.org/IPOGService/GetClients" style="document" />
@@ -163,29 +141,8 @@
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
-    <wsdl:operation name="Whisper">
-      <soap12:operation soapAction="http://tempuri.org/IPOGService/Whisper" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-    </wsdl:operation>
     <wsdl:operation name="IsWriting">
       <soap12:operation soapAction="http://tempuri.org/IPOGService/IsWriting" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-    </wsdl:operation>
-    <wsdl:operation name="SendFile">
-      <soap12:operation soapAction="http://tempuri.org/IPOGService/SendFile" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Disconnect">
-      <soap12:operation soapAction="http://tempuri.org/IPOGService/Disconnect" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -202,20 +159,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ReceiveWhisper">
-      <soap12:operation soapAction="http://tempuri.org/IPOGService/ReceiveWhisper" style="document" />
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="IsWritingCallback">
       <soap12:operation soapAction="http://tempuri.org/IPOGService/IsWritingCallback" style="document" />
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReceiverFile">
-      <soap12:operation soapAction="http://tempuri.org/IPOGService/ReceiverFile" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

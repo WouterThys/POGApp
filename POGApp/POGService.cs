@@ -11,11 +11,12 @@ namespace POGApp
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple, UseSynchronizationContext = false)]
     public class POGService : IPOGService
     {
-        private readonly Dictionary<Client, IPOGCallback> clients = new Dictionary<Client, IPOGCallback>()
-        {
-            { new Client() { Id = 1, Name = "Charlotte", LoggedIn = false }, null },
-            { new Client() { Id = 2, Name = "Wouter", LoggedIn = false }, null }
-        };
+
+        private readonly Client cClient = new Client() { Id = Client.C_ID, Name = "Charlotte", LoggedIn = false };
+        private readonly Client wClient = new Client() { Id = Client.W_ID, Name = "Wouter", LoggedIn = false };
+
+        private IPOGCallback cCallback;
+        private IPOGCallback wCallback;
 
         private readonly List<Message> messages = new List<Message>();
 
@@ -29,43 +30,31 @@ namespace POGApp
             }
         }
 
-        public bool Connect(Client client)
+        public void Connect(Client client)
         {
             lock (syncObj)
             {
                 client.LoggedIn = true;
-                Client knownClient = clients.Keys.FirstOrDefault(c => c.Id == client.Id);
-                if (knownClient != null)
+                if (client.Id == Client.C_ID)
                 {
-                    knownClient.CopyFrom(client);
+                    cClient.CopyFrom(client);
+                    cCallback = CurrentCallback;
+                    wCallback?.UserJoin(cClient);
                 }
-                clients[client] = CurrentCallback;
-                
-                foreach (Client key in clients.Keys)
+                else
                 {
-                    IPOGCallback callback = clients[key];
-                    if (callback == null) continue;
-                    try
-                    {
-                        List<Client> clientList = new List<Client>(clients.Keys);
-                        callback.RefreshClients(clientList);
-                        callback.UserJoin(client);
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e);
-                        return false;
-                    }
+                    wClient.CopyFrom(client);
+                    wCallback = CurrentCallback;
+                    cCallback?.UserJoin(cClient);
                 }
             }
-            return true;
         }
 
         public List<Client> GetClients()
         {
             lock (syncObj)
             {
-                return new List<Client>(clients.Keys);
+                return new List<Client>() { cClient, wClient };
             }
         }
 
@@ -94,104 +83,43 @@ namespace POGApp
             lock (syncObj)
             {
                 AddMessage(msg);
-                foreach (IPOGCallback callback in clients.Values)
+                if (msg.Sender == Client.C_ID)
                 {
-                    if (callback == null) continue;
-                    callback.Receive(msg);
+                    wCallback?.Receive(msg);
+                }
+                else
+                {
+                    cCallback?.Receive(msg);
                 }
             }
         }
-
-        public void Whisper(Message msg, Client receiver)
-        {
-            foreach (Client rec in clients.Keys)
-            {
-                if (rec.Name == receiver.Name)
-                {
-                    IPOGCallback callback = clients[rec];
-                    if (callback == null) continue;
-                    callback.ReceiveWhisper(msg, rec);
-
-                    foreach (Client sender in clients.Keys)
-                    {
-                        if (sender.Id == msg.Sender)
-                        {
-                            IPOGCallback senderCallback = clients[sender];
-                            if (senderCallback == null) continue;
-                            senderCallback.ReceiveWhisper(msg, rec);
-                            return;
-                        }
-                    }
-                }
-            }
-        }
-
-        public void IsWriting(Client client)
+        
+        public void IsWriting(long id)
         {
             lock (syncObj)
             {
-                foreach (IPOGCallback callback in clients.Values)
+                if (id == Client.C_ID)
                 {
-                    if (callback == null) continue;
-                    callback.IsWritingCallback(client);
+                    wCallback?.IsWritingCallback(id);
+                }
+                else
+                {
+                    cCallback?.IsWritingCallback(id);
                 }
             }
         }
-
-        public bool SendFile(FileMessage fileMsg, Client receiver)
+        
+        public void Disconnect(long id)
         {
-            foreach (Client rcvr in clients.Keys)
+            if (id == Client.C_ID)
             {
-                if (rcvr.Name == receiver.Name)
-                {
-                    Message msg = new Message
-                    {
-                        Sender = fileMsg.Sender,
-                        Content = "I'M SENDING FILE.. " + fileMsg.FileName
-                    };
-
-                    IPOGCallback rcvrCallback = clients[rcvr];
-                    if (rcvrCallback == null) continue;
-                    rcvrCallback.ReceiveWhisper(msg, receiver);
-                    rcvrCallback.ReceiverFile(fileMsg, receiver);
-
-                    foreach (Client sender in clients.Keys)
-                    {
-                        if (sender.Id == fileMsg.Sender)
-                        {
-                            IPOGCallback sndrCallback = clients[sender];
-                            if (sndrCallback == null) continue;
-                            sndrCallback.ReceiveWhisper(msg, receiver);
-                            return true;
-                        }
-                    }
-                }
+                cClient.LoggedIn = false;
+                wCallback?.UserLeave(cClient);
             }
-            return false;
-        }
-
-        public void Disconnect(Client client)
-        {
-            foreach (Client c in clients.Keys)
+            else
             {
-                if (client.Id == c.Id)
-                {
-                    lock (syncObj)
-                    {
-                        c.LoggedIn = false;
-                        foreach (Client c2 in clients.Keys)
-                        {
-                            if (client.Id != c2.Id)
-                            {
-                                IPOGCallback callback = clients[c2];
-                                if (callback == null) continue;
-                                List<Client> clientList = new List<Client>(clients.Keys);
-                                callback.RefreshClients(clientList);
-                                callback.UserLeave(client);
-                            }
-                        }
-                    }
-                }
+                wClient.LoggedIn = false;
+                cCallback?.UserLeave(wClient);
             }
         }
     }

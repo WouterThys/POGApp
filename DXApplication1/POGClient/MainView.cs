@@ -41,13 +41,14 @@ namespace POGClient
 
             gvMessages.OptionsBehavior.Editable = false;
             gvMessages.RowCellStyle += GvMessages_RowCellStyle;
+            gvMessages.RowCountChanged += GvMessages_RowCountChanged;
             
             for (int i = 0; i < icAvatars.Images.Count; i++)
             {
                 icbAvatar.Properties.Items.Add(new ImageComboBoxItem("", i, i));
             }
         }
-
+        
         void InitializeBindings()
         {
             var fluent = mvvmContext.OfType<MainViewModel>();
@@ -79,14 +80,18 @@ namespace POGClient
                 }));
             });
 
-            fluent.SetBinding(meMessageText, me => me.EditValue, m => m.MessageText);
+            fluent.SetBinding(meMessageText, me => me.Text, m => m.MessageText);
+            
 
             fluent.BindCommand(btnLogIn, m => m.LogIn());
             fluent.BindCommand(btnSendMessage, m => m.SendMessage());
             fluent.BindCommand(bbiLogOut, m => m.LogOut());
         }
 
-
+        private void GvMessages_RowCountChanged(object sender, EventArgs e)
+        {
+            gvMessages.MoveLast();
+        }
 
         void TileView_ItemCustomize(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventArgs e)
         {

@@ -135,30 +135,30 @@
             // colName
             // 
             this.colName.FieldName = "Name";
-            this.colName.MinWidth = 25;
+            this.colName.MinWidth = 21;
             this.colName.Name = "colName";
             this.colName.Visible = true;
             this.colName.VisibleIndex = 1;
-            this.colName.Width = 94;
+            this.colName.Width = 81;
             // 
             // colInfo
             // 
             this.colInfo.FieldName = "Info";
-            this.colInfo.MinWidth = 25;
+            this.colInfo.MinWidth = 21;
             this.colInfo.Name = "colInfo";
             this.colInfo.Visible = true;
             this.colInfo.VisibleIndex = 2;
-            this.colInfo.Width = 94;
+            this.colInfo.Width = 81;
             // 
             // colLoggedIn
             // 
             this.colLoggedIn.ColumnEdit = this.riCeLoggedIn;
             this.colLoggedIn.FieldName = "LoggedIn";
-            this.colLoggedIn.MinWidth = 25;
+            this.colLoggedIn.MinWidth = 21;
             this.colLoggedIn.Name = "colLoggedIn";
             this.colLoggedIn.Visible = true;
             this.colLoggedIn.VisibleIndex = 5;
-            this.colLoggedIn.Width = 94;
+            this.colLoggedIn.Width = 81;
             // 
             // riCeLoggedIn
             // 
@@ -178,11 +178,11 @@
             // colAvatar
             // 
             this.colAvatar.FieldName = "Avatar";
-            this.colAvatar.MinWidth = 25;
+            this.colAvatar.MinWidth = 21;
             this.colAvatar.Name = "colAvatar";
             this.colAvatar.Visible = true;
             this.colAvatar.VisibleIndex = 3;
-            this.colAvatar.Width = 94;
+            this.colAvatar.Width = 81;
             // 
             // riPeImage
             // 
@@ -196,12 +196,11 @@
             this.skinRibbonGalleryBarItem1,
             this.bbiLogOut});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.ribbonControl1.MaxItemId = 3;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage});
-            this.ribbonControl1.Size = new System.Drawing.Size(912, 198);
+            this.ribbonControl1.Size = new System.Drawing.Size(782, 162);
             // 
             // skinRibbonGalleryBarItem1
             // 
@@ -245,10 +244,11 @@
             // xtraTabControl
             // 
             this.xtraTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraTabControl.Location = new System.Drawing.Point(283, 198);
+            this.xtraTabControl.Location = new System.Drawing.Point(243, 162);
+            this.xtraTabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xtraTabControl.Name = "xtraTabControl";
             this.xtraTabControl.SelectedTabPage = this.xtpMain;
-            this.xtraTabControl.Size = new System.Drawing.Size(629, 433);
+            this.xtraTabControl.Size = new System.Drawing.Size(539, 351);
             this.xtraTabControl.TabIndex = 1;
             this.xtraTabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtpLogIn,
@@ -258,19 +258,22 @@
             // 
             this.xtpMain.Controls.Add(this.gcMessages);
             this.xtpMain.Controls.Add(this.panelControl1);
+            this.xtpMain.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xtpMain.Name = "xtpMain";
-            this.xtpMain.Size = new System.Drawing.Size(627, 399);
+            this.xtpMain.Size = new System.Drawing.Size(537, 322);
             this.xtpMain.Text = "Main";
             // 
             // gcMessages
             // 
             this.gcMessages.DataSource = this.bsMessages;
             this.gcMessages.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcMessages.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcMessages.Location = new System.Drawing.Point(0, 0);
             this.gcMessages.MainView = this.gvMessages;
+            this.gcMessages.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gcMessages.MenuManager = this.ribbonControl1;
             this.gcMessages.Name = "gcMessages";
-            this.gcMessages.Size = new System.Drawing.Size(627, 281);
+            this.gcMessages.Size = new System.Drawing.Size(537, 226);
             this.gcMessages.TabIndex = 3;
             this.gcMessages.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvMessages});
@@ -285,8 +288,10 @@
             this.colSender,
             this.colContent,
             this.colTime1});
+            this.gvMessages.DetailHeight = 284;
             this.gvMessages.GridControl = this.gcMessages;
             this.gvMessages.Name = "gvMessages";
+            this.gvMessages.OptionsView.RowAutoHeight = true;
             this.gvMessages.OptionsView.ShowGroupExpandCollapseButtons = false;
             this.gvMessages.OptionsView.ShowGroupPanel = false;
             this.gvMessages.OptionsView.ShowIndicator = false;
@@ -295,35 +300,36 @@
             // colSender
             // 
             this.colSender.FieldName = "Sender";
-            this.colSender.MinWidth = 25;
+            this.colSender.MinWidth = 21;
             this.colSender.Name = "colSender";
-            this.colSender.Width = 94;
+            this.colSender.Width = 81;
             // 
             // colContent
             // 
             this.colContent.Caption = "POG Messages";
             this.colContent.FieldName = "Content";
-            this.colContent.MinWidth = 25;
+            this.colContent.MinWidth = 21;
             this.colContent.Name = "colContent";
             this.colContent.Visible = true;
             this.colContent.VisibleIndex = 0;
-            this.colContent.Width = 94;
+            this.colContent.Width = 81;
             // 
             // colTime1
             // 
             this.colTime1.FieldName = "Time";
-            this.colTime1.MinWidth = 25;
+            this.colTime1.MinWidth = 21;
             this.colTime1.Name = "colTime1";
-            this.colTime1.Width = 94;
+            this.colTime1.Width = 81;
             // 
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.meMessageText);
             this.panelControl1.Controls.Add(this.btnSendMessage);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 281);
+            this.panelControl1.Location = new System.Drawing.Point(0, 226);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(627, 118);
+            this.panelControl1.Size = new System.Drawing.Size(537, 96);
             this.panelControl1.TabIndex = 2;
             // 
             // meMessageText
@@ -331,27 +337,30 @@
             this.meMessageText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.meMessageText.Location = new System.Drawing.Point(5, 5);
+            this.meMessageText.Location = new System.Drawing.Point(4, 4);
+            this.meMessageText.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.meMessageText.MenuManager = this.ribbonControl1;
             this.meMessageText.Name = "meMessageText";
-            this.meMessageText.Size = new System.Drawing.Size(517, 108);
+            this.meMessageText.Size = new System.Drawing.Size(443, 88);
             this.meMessageText.TabIndex = 0;
             // 
             // btnSendMessage
             // 
             this.btnSendMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSendMessage.Location = new System.Drawing.Point(528, 6);
+            this.btnSendMessage.Location = new System.Drawing.Point(453, 5);
+            this.btnSendMessage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSendMessage.Name = "btnSendMessage";
-            this.btnSendMessage.Size = new System.Drawing.Size(94, 107);
+            this.btnSendMessage.Size = new System.Drawing.Size(81, 87);
             this.btnSendMessage.TabIndex = 1;
             this.btnSendMessage.Text = "Send";
             // 
             // xtpLogIn
             // 
             this.xtpLogIn.Controls.Add(this.dlcLogIn);
+            this.xtpLogIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.xtpLogIn.Name = "xtpLogIn";
-            this.xtpLogIn.Size = new System.Drawing.Size(627, 399);
+            this.xtpLogIn.Size = new System.Drawing.Size(537, 323);
             this.xtpLogIn.Text = "LogIn";
             // 
             // dlcLogIn
@@ -365,18 +374,20 @@
             this.dlcLogIn.DataSource = this.bsClient;
             this.dlcLogIn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dlcLogIn.Location = new System.Drawing.Point(0, 0);
+            this.dlcLogIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dlcLogIn.Name = "dlcLogIn";
             this.dlcLogIn.Root = this.Root;
-            this.dlcLogIn.Size = new System.Drawing.Size(627, 399);
+            this.dlcLogIn.Size = new System.Drawing.Size(537, 323);
             this.dlcLogIn.TabIndex = 0;
             this.dlcLogIn.Text = "dataLayoutControl1";
             // 
             // btnLogIn
             // 
             this.btnLogIn.ImageOptions.Image = global::POGClient.Properties.Resources.media_play_green;
-            this.btnLogIn.Location = new System.Drawing.Point(345, 164);
+            this.btnLogIn.Location = new System.Drawing.Point(293, 143);
+            this.btnLogIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogIn.Name = "btnLogIn";
-            this.btnLogIn.Size = new System.Drawing.Size(142, 28);
+            this.btnLogIn.Size = new System.Drawing.Size(123, 28);
             this.btnLogIn.StyleController = this.dlcLogIn;
             this.btnLogIn.TabIndex = 7;
             this.btnLogIn.Text = "Start Awesomness";
@@ -384,10 +395,11 @@
             // ClientNameTextEdit
             // 
             this.ClientNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsClient, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ClientNameTextEdit.Location = new System.Drawing.Point(272, 102);
+            this.ClientNameTextEdit.Location = new System.Drawing.Point(232, 85);
+            this.ClientNameTextEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ClientNameTextEdit.MenuManager = this.ribbonControl1;
             this.ClientNameTextEdit.Name = "ClientNameTextEdit";
-            this.ClientNameTextEdit.Size = new System.Drawing.Size(215, 22);
+            this.ClientNameTextEdit.Size = new System.Drawing.Size(184, 20);
             this.ClientNameTextEdit.StyleController = this.dlcLogIn;
             this.ClientNameTextEdit.TabIndex = 8;
             // 
@@ -399,17 +411,19 @@
             // ClientInfoTextEdit
             // 
             this.ClientInfoTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsClient, "Info", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ClientInfoTextEdit.Location = new System.Drawing.Point(272, 128);
+            this.ClientInfoTextEdit.Location = new System.Drawing.Point(232, 109);
+            this.ClientInfoTextEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ClientInfoTextEdit.MenuManager = this.ribbonControl1;
             this.ClientInfoTextEdit.Name = "ClientInfoTextEdit";
-            this.ClientInfoTextEdit.Size = new System.Drawing.Size(215, 22);
+            this.ClientInfoTextEdit.Size = new System.Drawing.Size(184, 20);
             this.ClientInfoTextEdit.StyleController = this.dlcLogIn;
             this.ClientInfoTextEdit.TabIndex = 9;
             // 
             // icbAvatar
             // 
             this.icbAvatar.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsClient, "Avatar", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.icbAvatar.Location = new System.Drawing.Point(115, 92);
+            this.icbAvatar.Location = new System.Drawing.Point(99, 75);
+            this.icbAvatar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.icbAvatar.MenuManager = this.ribbonControl1;
             this.icbAvatar.Name = "icbAvatar";
             this.icbAvatar.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -419,7 +433,7 @@
             new DevExpress.XtraEditors.Controls.ImageComboBoxItem("", ((short)(0)), 3)});
             this.icbAvatar.Properties.LargeImages = this.icAvatars;
             this.icbAvatar.Properties.SmallImages = this.icAvatars;
-            this.icbAvatar.Size = new System.Drawing.Size(117, 66);
+            this.icbAvatar.Size = new System.Drawing.Size(99, 66);
             this.icbAvatar.StyleController = this.dlcLogIn;
             this.icbAvatar.TabIndex = 6;
             this.icbAvatar.TabStop = false;
@@ -544,7 +558,7 @@
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlGroup1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(627, 399);
+            this.Root.Size = new System.Drawing.Size(537, 323);
             this.Root.TextVisible = false;
             // 
             // layoutControlGroup1
@@ -565,97 +579,97 @@
             this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "autoGeneratedGroup0";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(607, 379);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(519, 307);
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.icbAvatar;
-            this.layoutControlItem1.Location = new System.Drawing.Point(103, 80);
+            this.layoutControlItem1.Location = new System.Drawing.Point(88, 65);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(121, 104);
+            this.layoutControlItem1.Size = new System.Drawing.Size(103, 100);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(224, 80);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(191, 65);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(255, 10);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(218, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(224, 142);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(191, 123);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(255, 10);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(218, 10);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(479, 80);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(409, 65);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(128, 104);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(110, 100);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem5
             // 
             this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.Location = new System.Drawing.Point(103, 0);
+            this.emptySpaceItem5.Location = new System.Drawing.Point(88, 0);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(504, 80);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(431, 65);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem6
             // 
             this.emptySpaceItem6.AllowHotTrack = false;
-            this.emptySpaceItem6.Location = new System.Drawing.Point(103, 184);
+            this.emptySpaceItem6.Location = new System.Drawing.Point(88, 165);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(504, 195);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(431, 142);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // ItemForClientName
             // 
             this.ItemForClientName.Control = this.ClientNameTextEdit;
-            this.ItemForClientName.Location = new System.Drawing.Point(224, 90);
+            this.ItemForClientName.Location = new System.Drawing.Point(191, 75);
             this.ItemForClientName.Name = "ItemForClientName";
-            this.ItemForClientName.Size = new System.Drawing.Size(255, 26);
+            this.ItemForClientName.Size = new System.Drawing.Size(218, 24);
             this.ItemForClientName.Text = "Name";
-            this.ItemForClientName.TextSize = new System.Drawing.Size(33, 16);
+            this.ItemForClientName.TextSize = new System.Drawing.Size(27, 13);
             // 
             // ItemForClientInfo
             // 
             this.ItemForClientInfo.Control = this.ClientInfoTextEdit;
-            this.ItemForClientInfo.Location = new System.Drawing.Point(224, 116);
+            this.ItemForClientInfo.Location = new System.Drawing.Point(191, 99);
             this.ItemForClientInfo.Name = "ItemForClientInfo";
-            this.ItemForClientInfo.Size = new System.Drawing.Size(255, 26);
+            this.ItemForClientInfo.Size = new System.Drawing.Size(218, 24);
             this.ItemForClientInfo.Text = "Info";
-            this.ItemForClientInfo.TextSize = new System.Drawing.Size(33, 16);
+            this.ItemForClientInfo.TextSize = new System.Drawing.Size(27, 13);
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(103, 379);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(88, 307);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem7
             // 
             this.emptySpaceItem7.AllowHotTrack = false;
-            this.emptySpaceItem7.Location = new System.Drawing.Point(224, 152);
+            this.emptySpaceItem7.Location = new System.Drawing.Point(191, 133);
             this.emptySpaceItem7.Name = "emptySpaceItem7";
-            this.emptySpaceItem7.Size = new System.Drawing.Size(109, 32);
+            this.emptySpaceItem7.Size = new System.Drawing.Size(91, 32);
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnLogIn;
-            this.layoutControlItem2.Location = new System.Drawing.Point(333, 152);
+            this.layoutControlItem2.Location = new System.Drawing.Point(282, 133);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(146, 32);
+            this.layoutControlItem2.Size = new System.Drawing.Size(127, 32);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -667,14 +681,16 @@
             // 
             this.gridControl.DataSource = this.bsClients;
             this.gridControl.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gridControl.Location = new System.Drawing.Point(0, 198);
+            this.gridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gridControl.Location = new System.Drawing.Point(0, 162);
             this.gridControl.MainView = this.tileView;
+            this.gridControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl.MenuManager = this.ribbonControl1;
             this.gridControl.Name = "gridControl";
             this.gridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.riCeLoggedIn,
             this.riPeImage});
-            this.gridControl.Size = new System.Drawing.Size(283, 433);
+            this.gridControl.Size = new System.Drawing.Size(243, 351);
             this.gridControl.TabIndex = 0;
             this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.tileView});
@@ -693,6 +709,7 @@
             this.colAvatar,
             this.colTime,
             this.colLoggedIn});
+            this.tileView.DetailHeight = 284;
             this.tileView.FocusBorderColor = System.Drawing.Color.Transparent;
             this.tileView.GridControl = this.gridControl;
             this.tileView.Name = "tileView";
@@ -757,31 +774,30 @@
             // colId
             // 
             this.colId.FieldName = "Id";
-            this.colId.MinWidth = 25;
+            this.colId.MinWidth = 21;
             this.colId.Name = "colId";
             this.colId.Visible = true;
             this.colId.VisibleIndex = 0;
-            this.colId.Width = 94;
+            this.colId.Width = 81;
             // 
             // colTime
             // 
             this.colTime.FieldName = "Time";
-            this.colTime.MinWidth = 25;
+            this.colTime.MinWidth = 21;
             this.colTime.Name = "colTime";
             this.colTime.Visible = true;
             this.colTime.VisibleIndex = 4;
-            this.colTime.Width = 94;
+            this.colTime.Width = 81;
             // 
             // MainView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(912, 631);
+            this.ClientSize = new System.Drawing.Size(782, 513);
             this.Controls.Add(this.xtraTabControl);
             this.Controls.Add(this.gridControl);
             this.Controls.Add(this.ribbonControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "MainView";
             this.Ribbon = this.ribbonControl1;
             this.Text = "POG Chat";

@@ -77,7 +77,7 @@ namespace POGClient
                 {
                     Task.Factory.StartNew((dispatcher) =>
                     {
-                        c.Disconnect(Client);
+                        c.Disconnect(Client.Id);
                         try
                         {
                             serviceClient.Close();
@@ -110,10 +110,11 @@ namespace POGClient
             {
                 Task.Factory.StartNew((dispatcher) =>
                 {
-                    bool loggedIn = serviceClient.Connect(Client);
+                    serviceClient.Connect(Client);
                     ((IDispatcherService)dispatcher).BeginInvoke(() =>
                     {
-                        LoggedIn = loggedIn;
+                        LoggedIn = true;
+                        Client.LoggedIn = true;
                         UpdateCommands();
                     });
                 }, DispatcherService);
@@ -134,7 +135,7 @@ namespace POGClient
                 {
                     Task.Factory.StartNew((dispatcher) =>
                     {
-                        c.Disconnect(Client);
+                        c.Disconnect(Client.Id);
                         Client.LoggedIn = false;
                         LoggedIn = false;
                     }, DispatcherService);
@@ -151,13 +152,16 @@ namespace POGClient
         public virtual void KeyPressed(System.Windows.Forms.KeyEventArgs keyEvent)
         {
             if (keyEvent == null) return;
-
+            if (keyEvent.Control) return;
 
             if (keyEvent.KeyCode == System.Windows.Forms.Keys.Enter)
             {
                 if (CanSendMessage())
                 {
                     SendMessage();
+                    MessageText = "";
+                    keyEvent.Handled = true;
+                    keyEvent.SuppressKeyPress = true;
                 }
             }
         }
@@ -182,6 +186,9 @@ namespace POGClient
                 {
                     c.Say(m);
                 });
+                
+                Messages.Add(m);
+                UpdateCommands();
             });
         }
 
@@ -306,28 +313,13 @@ namespace POGClient
         {
             msg.Color = Client.Color;
             Messages.Add(msg);
-            if (msg.Sender == Client.Id)
-            {
-                MessageText = "";
-                UpdateCommands();
-            }
         }
 
-        public void ReceiveWhisper(Message msg, Client receiver)
+        public void IsWritingCallback(long client)
         {
 
         }
-
-        public void IsWritingCallback(Client client)
-        {
-
-        }
-
-        public void ReceiverFile(FileMessage fileMsg, Client receiver)
-        {
-
-        }
-
+        
         public void UserJoin(Client client)
         {
             if (Clients != null && client != null)
