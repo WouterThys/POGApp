@@ -175,13 +175,7 @@ namespace POGClient
                 IsPicture = false
             };
             MessageText = "";
-            Task.Factory.StartNew(() =>
-            {
-                Call(c =>
-                {
-                    c.Say(m);
-                });
-            });
+            Send(m);
         }
 
         public virtual void SendPicture(string file, byte[] picture)
@@ -194,6 +188,21 @@ namespace POGClient
                 IsPicture = true,
                 Picture = Convert.ToBase64String(picture)
             };
+            Send(m);
+        }
+
+       private void Send(Message message)
+        {
+            if (message != null)
+            {
+                Task.Factory.StartNew(() =>
+                {
+                    Call(c =>
+                    {
+                        c.Say(message);
+                    });
+                });
+            }
         }
 
         private void FetchClients()

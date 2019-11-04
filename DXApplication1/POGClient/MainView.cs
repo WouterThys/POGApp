@@ -9,6 +9,7 @@ using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 
@@ -48,6 +49,7 @@ namespace POGClient
             gvMessages.RowCellStyle += GvMessages_RowCellStyle;
             gvMessages.RowCountChanged += GvMessages_RowCountChanged;
             gvMessages.CustomRowCellEdit += GvMessages_CustomRowCellEdit;
+            riPictureEdit.SizeMode = PictureSizeMode.Stretch;
             
             for (int i = 0; i < icAvatars.Images.Count; i++)
             {
@@ -177,11 +179,11 @@ namespace POGClient
             }
         }
 
-        public byte[] ImageToByteArray(Image imageIn)
+        public byte[] ImageToByteArray(Image image)
         {
             using (var ms = new MemoryStream())
             {
-                imageIn.Save(ms, imageIn.RawFormat);
+                image.Save(ms, ImageFormat.Jpeg);
                 return ms.ToArray();
             }
         }
