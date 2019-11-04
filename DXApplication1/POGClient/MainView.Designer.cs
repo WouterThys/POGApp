@@ -54,10 +54,9 @@
             this.gcMessages = new DevExpress.XtraGrid.GridControl();
             this.bsMessages = new System.Windows.Forms.BindingSource(this.components);
             this.gvMessages = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colSender = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colContent = new DevExpress.XtraGrid.Columns.GridColumn();
             this.riMemoEdit = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
-            this.colTime1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.riPictureEdit = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.meMessageText = new DevExpress.XtraEditors.MemoEdit();
             this.btnSendMessage = new DevExpress.XtraEditors.SimpleButton();
@@ -67,6 +66,7 @@
             this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bbiLogOut = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiSendNudes = new DevExpress.XtraBars.BarButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -98,7 +98,6 @@
             this.ItemForClientName = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForClientInfo = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.bbiSendNudes = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.riCeLoggedIn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icLogStates)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riPeImage)).BeginInit();
@@ -110,6 +109,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsMessages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMessages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riMemoEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riPictureEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.meMessageText.Properties)).BeginInit();
@@ -238,7 +238,8 @@
             this.gcMessages.Name = "gcMessages";
             this.gcMessages.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.gcMessages.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.riMemoEdit});
+            this.riMemoEdit,
+            this.riPictureEdit});
             this.gcMessages.Size = new System.Drawing.Size(618, 317);
             this.gcMessages.TabIndex = 3;
             this.gcMessages.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -251,9 +252,7 @@
             // gvMessages
             // 
             this.gvMessages.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colSender,
-            this.colContent,
-            this.colTime1});
+            this.colContent});
             this.gvMessages.DetailHeight = 284;
             this.gvMessages.GridControl = this.gcMessages;
             this.gvMessages.Name = "gvMessages";
@@ -264,18 +263,11 @@
             this.gvMessages.OptionsView.ShowIndicator = false;
             this.gvMessages.OptionsView.ShowVerticalLines = DevExpress.Utils.DefaultBoolean.False;
             // 
-            // colSender
-            // 
-            this.colSender.FieldName = "Sender";
-            this.colSender.MinWidth = 21;
-            this.colSender.Name = "colSender";
-            this.colSender.Width = 81;
-            // 
             // colContent
             // 
             this.colContent.Caption = "POG Messages";
             this.colContent.ColumnEdit = this.riMemoEdit;
-            this.colContent.FieldName = "Content";
+            this.colContent.FieldName = "Value";
             this.colContent.MinWidth = 21;
             this.colContent.Name = "colContent";
             this.colContent.Visible = true;
@@ -287,12 +279,9 @@
             this.riMemoEdit.Name = "riMemoEdit";
             this.riMemoEdit.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
             // 
-            // colTime1
+            // riPictureEdit
             // 
-            this.colTime1.FieldName = "Time";
-            this.colTime1.MinWidth = 21;
-            this.colTime1.Name = "colTime1";
-            this.colTime1.Width = 81;
+            this.riPictureEdit.Name = "riPictureEdit";
             // 
             // panelControl1
             // 
@@ -409,6 +398,14 @@
             this.bbiLogOut.Id = 0;
             this.bbiLogOut.ImageOptions.Image = global::POGClient.Properties.Resources.exit;
             this.bbiLogOut.Name = "bbiLogOut";
+            // 
+            // bbiSendNudes
+            // 
+            this.bbiSendNudes.Caption = "Send nudes";
+            this.bbiSendNudes.Id = 1;
+            this.bbiSendNudes.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiSendNudes.ImageOptions.Image")));
+            this.bbiSendNudes.Name = "bbiSendNudes";
+            this.bbiSendNudes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSendNudes_ItemClick);
             // 
             // barDockControlTop
             // 
@@ -886,14 +883,6 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(493, 221);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // bbiSendNudes
-            // 
-            this.bbiSendNudes.Caption = "Send nudes";
-            this.bbiSendNudes.Id = 1;
-            this.bbiSendNudes.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiSendNudes.ImageOptions.Image")));
-            this.bbiSendNudes.Name = "bbiSendNudes";
-            this.bbiSendNudes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSendNudes_ItemClick);
-            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -918,6 +907,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bsMessages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMessages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riMemoEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riPictureEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.meMessageText.Properties)).EndInit();
@@ -995,9 +985,7 @@
         private DevExpress.Utils.ImageCollection icAvatars;
         private DevExpress.XtraEditors.ImageComboBoxEdit icbAvatar;
         private DevExpress.XtraGrid.Views.Grid.GridView gvMessages;
-        private DevExpress.XtraGrid.Columns.GridColumn colSender;
         private DevExpress.XtraGrid.Columns.GridColumn colContent;
-        private DevExpress.XtraGrid.Columns.GridColumn colTime1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
@@ -1014,6 +1002,7 @@
         private DevExpress.XtraEditors.LabelControl lblOtherName;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit riMemoEdit;
         private DevExpress.XtraBars.BarButtonItem bbiSendNudes;
+        private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit riPictureEdit;
     }
 }
 

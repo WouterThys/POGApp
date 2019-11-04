@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Runtime.Serialization;
 
 namespace Common
@@ -31,6 +32,25 @@ namespace Common
         public override string ToString()
         {
             return content;
+        }
+
+        public object Value
+        {
+            get
+            {
+                if (IsPicture && !string.IsNullOrEmpty(Picture))
+                {
+                    byte[] data = Convert.FromBase64String(Picture);
+                    using (var ms = new MemoryStream(data))
+                    {
+                        return Image.FromStream(ms);
+                    }
+                }
+                else
+                {
+                    return Content;
+                }
+            }
         }
 
         [DataMember]

@@ -153,7 +153,7 @@ namespace POGClient
                 if (CanSendMessage())
                 {
                     SendMessage();
-                    MessageText = "";
+                    
                     keyEvent.Handled = true;
                     keyEvent.SuppressKeyPress = true;
                 }
@@ -174,7 +174,7 @@ namespace POGClient
                 Time = DateTime.Now,
                 IsPicture = false
             };
-
+            MessageText = "";
             Task.Factory.StartNew(() =>
             {
                 Call(c =>

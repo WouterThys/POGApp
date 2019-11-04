@@ -6,6 +6,7 @@ using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Camera;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Drawing;
 using System.IO;
@@ -46,6 +47,7 @@ namespace POGClient
             gvMessages.OptionsBehavior.Editable = false;
             gvMessages.RowCellStyle += GvMessages_RowCellStyle;
             gvMessages.RowCountChanged += GvMessages_RowCountChanged;
+            gvMessages.CustomRowCellEdit += GvMessages_CustomRowCellEdit;
             
             for (int i = 0; i < icAvatars.Images.Count; i++)
             {
@@ -122,10 +124,10 @@ namespace POGClient
             e.Item.Elements[3].Text = string.Empty;
         }
 
-        private void GvMessages_RowCellStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowCellStyleEventArgs e)
+        private void GvMessages_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
             Common.Message m = (Common.Message)gvMessages.GetRow(e.RowHandle);
-            if (m != null)
+            if (m != null && !m.IsPicture)
             {
                 if (!m.Info)
                 {
@@ -145,14 +147,19 @@ namespace POGClient
                 {
                     e.Appearance.TextOptions.HAlignment = HorzAlignment.Near;
                 }
-                if (m.IsPicture)
-                {
-                    e.Appearance.FontStyleDelta = FontStyle.Underline;
-                }
-                else
-                {
-                    e.Appearance.FontStyleDelta = FontStyle.Regular;
-                }
+            }
+        }
+
+        private void GvMessages_CustomRowCellEdit(object sender, CustomRowCellEditEventArgs e)
+        {
+            Common.Message m = (Common.Message)gvMessages.GetRow(e.RowHandle);
+            if (m != null && m.IsPicture)
+            {
+                e.RepositoryItem = riPictureEdit;
+            }
+            else
+            {
+                e.RepositoryItem = riMemoEdit;
             }
         }
 
