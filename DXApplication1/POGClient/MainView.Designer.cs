@@ -282,6 +282,7 @@
             // riPictureEdit
             // 
             this.riPictureEdit.Name = "riPictureEdit";
+            this.riPictureEdit.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
             // 
             // panelControl1
             // 

@@ -120,7 +120,7 @@ namespace Common
 
         public string Title
         {
-            get { return "POGApp (" + Name + ")"; }
+            get { return "POG Chat 2000 (" + Name + ")"; }
         }
     }
 }

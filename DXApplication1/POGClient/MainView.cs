@@ -49,7 +49,7 @@ namespace POGClient
             gvMessages.RowCellStyle += GvMessages_RowCellStyle;
             gvMessages.RowCountChanged += GvMessages_RowCountChanged;
             gvMessages.CustomRowCellEdit += GvMessages_CustomRowCellEdit;
-            riPictureEdit.SizeMode = PictureSizeMode.Stretch;
+            riPictureEdit.SizeMode = PictureSizeMode.Squeeze;
             
             for (int i = 0; i < icAvatars.Images.Count; i++)
             {
