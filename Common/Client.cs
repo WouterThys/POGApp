@@ -22,6 +22,10 @@ namespace Common
         private bool loggedIn;
         private Color color;
 
+        public override string ToString()
+        {
+            return name;
+        }
 
         public override bool Equals(object obj)
         {
@@ -75,6 +79,7 @@ namespace Common
             {
                 name = value;
                 OnPropertyChanged("Name");
+                OnPropertyChanged("Title");
             }
         }
 
@@ -111,6 +116,11 @@ namespace Common
         {
             get { return color; }
             set { color = value; OnPropertyChanged("Color"); }
+        }
+
+        public string Title
+        {
+            get { return "POGApp (" + Name + ")"; }
         }
     }
 }

@@ -11,10 +11,28 @@ namespace Common
     [DataContract]
     public class Message
     {
+        public static Message CreateInfo(Client client)
+        {
+            return new Message()
+            {
+                Sender = client.Id,
+                Content = client.Name + " - " + DateTime.Now.ToString("dd/MM/yyyy H:mm"),
+                Time = DateTime.Now,
+                Color = Color.Gray,
+                Info = true
+            };
+        }
+
         private long sender;
         private string content;
         private DateTime time;
         private Color color;
+        private bool info;
+
+        public override string ToString()
+        {
+            return content;
+        }
 
         [DataMember]
         public long Sender
@@ -42,6 +60,13 @@ namespace Common
         {
             get { return color; }
             set { color = value; }
+        }
+
+        [DataMember] 
+        public bool Info
+        {
+            get { return info; }
+            set { info = value; }
         }
     }
 }

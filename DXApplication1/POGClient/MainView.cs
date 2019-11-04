@@ -2,6 +2,7 @@
 using DevExpress.Utils;
 using DevExpress.Utils.Drawing.Helpers;
 using DevExpress.Utils.MVVM.Services;
+using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraGrid.Views.Base;
 using System;
@@ -10,7 +11,7 @@ using System.Windows.Forms;
 
 namespace POGClient
 {
-    public partial class MainView : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class MainView : XtraForm
     {
         private long clientId = 0;
 
@@ -57,7 +58,7 @@ namespace POGClient
             fluent.WithEvent<FormClosingEventArgs>(this, "FormClosing").EventToCommand(
                 m => m.Stop());
 
-            fluent.SetObjectDataSourceBinding(bsClient, m => m.Client, m => m.UpdateCommands());
+            fluent.SetObjectDataSourceBinding(bsClient, m => m.Me, m => m.UpdateCommands());
             fluent.SetObjectDataSourceBinding(bsClients, m => m.Clients, m => m.UpdateCommands());
             fluent.SetObjectDataSourceBinding(bsMessages, m => m.Messages);
             
@@ -70,7 +71,7 @@ namespace POGClient
                 {
                     if (logged)
                     {
-                        clientId = fluent.ViewModel.Client.Id;
+                        clientId = fluent.ViewModel.Me.Id;
                         xtraTabControl.SelectedTabPageIndex = 1;
                     }
                     else
@@ -79,10 +80,14 @@ namespace POGClient
                     }
                 }));
             });
+            fluent.SetTrigger(m => m.Me.Avatar, id => { peMe.Image = icAvatars.Images[id]; });
+            fluent.SetTrigger(m => m.Other.Avatar, id => { peOther.Image = icAvatars.Images[id]; });
 
+            fluent.SetBinding(this, v => v.Text, m => m.Me.Title);
             fluent.SetBinding(meMessageText, me => me.Text, m => m.MessageText);
+            fluent.SetBinding(ceOnline, ce => ce.EditValue, m => m.Other.LoggedIn);
+            fluent.SetBinding(lblOtherName, lbl => lbl.Text, m => m.Other.Name);
             
-
             fluent.BindCommand(btnLogIn, m => m.LogIn());
             fluent.BindCommand(btnSendMessage, m => m.SendMessage());
             fluent.BindCommand(bbiLogOut, m => m.LogOut());
@@ -116,17 +121,23 @@ namespace POGClient
             Common.Message m = (Common.Message)gvMessages.GetRow(e.RowHandle);
             if (m != null)
             {
-                if (m.Sender == clientId)
+                if (!m.Info)
                 {
-                    e.Appearance.TextOptions.HAlignment = HorzAlignment.Far;
                     e.Appearance.FontStyleDelta = FontStyle.Bold;
                     e.Appearance.ForeColor = Color.Blue;
                 }
                 else
                 {
+                    e.Appearance.FontStyleDelta = FontStyle.Regular;
+                    e.Appearance.ForeColor = Color.Gray;
+                }
+                if (m.Sender == clientId)
+                {
+                    e.Appearance.TextOptions.HAlignment = HorzAlignment.Far;
+                }
+                else
+                {
                     e.Appearance.TextOptions.HAlignment = HorzAlignment.Near;
-                    e.Appearance.FontStyleDelta = FontStyle.Italic;
-                    e.Appearance.ForeColor = Color.Green;
                 }
             }
         }

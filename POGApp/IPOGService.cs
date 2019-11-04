@@ -4,25 +4,32 @@ using System.ServiceModel;
 
 namespace POGApp
 {
-    [ServiceContract(CallbackContract=typeof(IPOGCallback), SessionMode = SessionMode.Required)]
+    [ServiceContract(CallbackContract=typeof(IPOGCallback))]
     public interface IPOGService
     {
-        [OperationContract(IsInitiating = true)]
+        [OperationContract]
+        void Register(long id);
+
+        [OperationContract]
+        void UnRegister(long id);
+
+        [OperationContract]
         void Connect(Client client);
 
-        [OperationContract(IsOneWay = true, IsTerminating = true)]
+        [OperationContract]
         void Disconnect(long id);
 
-        [OperationContract(IsOneWay = false)]
-        List<Client> GetClients();
+        [OperationContract]
+        Client GetWouter();
 
-        [OperationContract(IsOneWay = false)]
+        [OperationContract]
+        Client GetCharlotte();
+
+        [OperationContract]
         List<Message> GetMessages();
 
-        [OperationContract(IsOneWay = true)]
+        [OperationContract]
         void Say(Message msg);
 
-        [OperationContract(IsOneWay = true)]
-        void IsWriting(long client);
     }
 }

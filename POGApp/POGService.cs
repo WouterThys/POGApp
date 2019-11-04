@@ -1,22 +1,20 @@
 ﻿using Common;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace POGApp
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Multiple, UseSynchronizationContext = false)]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class POGService : IPOGService
     {
-
         private readonly Client cClient = new Client() { Id = Client.C_ID, Name = "Charlotte", LoggedIn = false };
         private readonly Client wClient = new Client() { Id = Client.W_ID, Name = "Wouter", LoggedIn = false };
 
         private IPOGCallback cCallback;
         private IPOGCallback wCallback;
+
+        private Message lastMessage;
 
         private readonly List<Message> messages = new List<Message>();
 
@@ -30,96 +28,173 @@ namespace POGApp
             }
         }
 
-        public void Connect(Client client)
+        public void Register(long id)
         {
-            lock (syncObj)
+            if (id == Client.C_ID)
             {
-                client.LoggedIn = true;
-                if (client.Id == Client.C_ID)
-                {
-                    cClient.CopyFrom(client);
-                    cCallback = CurrentCallback;
-                    wCallback?.UserJoin(cClient);
-                }
-                else
-                {
-                    wClient.CopyFrom(client);
-                    wCallback = CurrentCallback;
-                    cCallback?.UserJoin(cClient);
-                }
+                cCallback = CurrentCallback;
+            }
+            else
+            {
+                wCallback = CurrentCallback;
             }
         }
 
-        public List<Client> GetClients()
+        public void UnRegister(long id)
         {
-            lock (syncObj)
+            if (id == Client.C_ID)
             {
-                return new List<Client>() { cClient, wClient };
+                cCallback = null;
             }
+            else
+            {
+                wCallback = null;
+            }
+            Disconnect(id);
+        }
+
+        public void Connect(Client client)
+        {
+            try
+            {
+                Console.WriteLine("Connect " + client);
+                lock (syncObj)
+                {
+                    client.LoggedIn = true;
+                    if (client.Id == Client.C_ID)
+                    {
+                        cClient.CopyFrom(client);
+                    }
+                    else
+                    {
+                        wClient.CopyFrom(client);
+                    }
+                    wCallback?.RefreshClients(cClient, wClient);
+                    cCallback?.RefreshClients(cClient, wClient);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("ERROR - Connect: " + e);
+            }
+        }
+
+        public Client GetWouter()
+        {
+            try
+            {
+                Console.WriteLine("GetWouter");
+                return wClient;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("ERROR - Disconnect: " + e);
+            }
+            return null;
+        }
+
+        public Client GetCharlotte()
+        {
+            try
+            {
+                Console.WriteLine("GetCharlotte");
+                return cClient;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("ERROR - GetCharlotte: " + e);
+            }
+            return null;
         }
 
         public List<Message> GetMessages()
         {
-            lock(syncObj)
+            try
             {
-                return new List<Message>(messages);
+                Console.WriteLine("GetMessages");
+                lock (syncObj)
+                {
+                    return new List<Message>(messages);
+                }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine("ERROR - GetMessages: " + e);
+            }
+            return null;
         }
 
         private void AddMessage(Message msg)
         {
-            lock(syncObj)
+            lock (syncObj)
             {
                 messages.Add(msg);
-                if (messages.Count > 200)
+                if (messages.Count > 2000)
                 {
                     messages.RemoveAt(0);
                 }
             }
         }
 
-        public void Say(Message msg)
+        private void SendInfo(Message msg)
         {
-            lock (syncObj)
+            try
             {
-                AddMessage(msg);
-                if (msg.Sender == Client.C_ID)
+                if (lastMessage != null && msg.Sender != lastMessage.Sender)
                 {
-                    wCallback?.Receive(msg);
-                }
-                else
-                {
-                    cCallback?.Receive(msg);
+                    Message info = Message.CreateInfo(msg.Sender == Client.C_ID ? cClient : wClient);
+
+                    AddMessage(info);
+                    wCallback?.Receive(info);
+                    cCallback?.Receive(info);
                 }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine("ERROR - SendInfo: " + e);
+            }
         }
-        
-        public void IsWriting(long id)
+
+        public void Say(Message msg)
         {
-            lock (syncObj)
+            try
+            {
+                Console.WriteLine("Say " + msg);
+                lock (syncObj)
+                {
+                    SendInfo(msg);
+                    AddMessage(msg);
+                    wCallback?.Receive(msg);
+                    cCallback?.Receive(msg);
+                    lastMessage = msg;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("ERROR - Say: " + e);
+            }
+        }
+
+        public void Disconnect(long id)
+        {
+            try
             {
                 if (id == Client.C_ID)
                 {
-                    wCallback?.IsWritingCallback(id);
+                    cClient.LoggedIn = false;
+                    Console.WriteLine("Disconnect " + cClient);
                 }
                 else
                 {
-                    cCallback?.IsWritingCallback(id);
+                    wClient.LoggedIn = false;
+                    Console.WriteLine("Disconnect " + wClient);
                 }
+                cCallback?.RefreshClients(cClient, wClient);
+                wCallback?.RefreshClients(cClient, wClient);
             }
-        }
-        
-        public void Disconnect(long id)
-        {
-            if (id == Client.C_ID)
+            catch (Exception e)
             {
-                cClient.LoggedIn = false;
-                wCallback?.UserLeave(cClient);
-            }
-            else
-            {
-                wClient.LoggedIn = false;
-                cCallback?.UserLeave(wClient);
+                Console.WriteLine("ERROR - Disconnect: " + e);
             }
         }
     }

@@ -18,6 +18,18 @@
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/System.Drawing" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IPOGService_Register_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="IPOGService_Register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOGService_UnRegister_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnRegister" />
+  </wsdl:message>
+  <wsdl:message name="IPOGService_UnRegister_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnRegisterResponse" />
+  </wsdl:message>
   <wsdl:message name="IPOGService_Connect_InputMessage">
     <wsdl:part name="parameters" element="tns:Connect" />
   </wsdl:message>
@@ -27,11 +39,20 @@
   <wsdl:message name="IPOGService_Disconnect_InputMessage">
     <wsdl:part name="parameters" element="tns:Disconnect" />
   </wsdl:message>
-  <wsdl:message name="IPOGService_GetClients_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetClients" />
+  <wsdl:message name="IPOGService_Disconnect_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisconnectResponse" />
   </wsdl:message>
-  <wsdl:message name="IPOGService_GetClients_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetClientsResponse" />
+  <wsdl:message name="IPOGService_GetWouter_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWouter" />
+  </wsdl:message>
+  <wsdl:message name="IPOGService_GetWouter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWouterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPOGService_GetCharlotte_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCharlotte" />
+  </wsdl:message>
+  <wsdl:message name="IPOGService_GetCharlotte_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCharlotteResponse" />
   </wsdl:message>
   <wsdl:message name="IPOGService_GetMessages_InputMessage">
     <wsdl:part name="parameters" element="tns:GetMessages" />
@@ -42,8 +63,8 @@
   <wsdl:message name="IPOGService_Say_InputMessage">
     <wsdl:part name="parameters" element="tns:Say" />
   </wsdl:message>
-  <wsdl:message name="IPOGService_IsWriting_InputMessage">
-    <wsdl:part name="parameters" element="tns:IsWriting" />
+  <wsdl:message name="IPOGService_Say_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SayResponse" />
   </wsdl:message>
   <wsdl:message name="IPOGService_RefreshClients_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:RefreshClients" />
@@ -51,57 +72,68 @@
   <wsdl:message name="IPOGService_Receive_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:Receive" />
   </wsdl:message>
-  <wsdl:message name="IPOGService_IsWritingCallback_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:IsWritingCallback" />
-  </wsdl:message>
-  <wsdl:message name="IPOGService_UserJoin_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:UserJoin" />
-  </wsdl:message>
-  <wsdl:message name="IPOGService_UserLeave_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:UserLeave" />
-  </wsdl:message>
-  <wsdl:portType msc:usingSession="true" name="IPOGService">
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Connect">
+  <wsdl:portType name="IPOGService">
+    <wsdl:operation name="Register">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/Register" message="tns:IPOGService_Register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/RegisterResponse" message="tns:IPOGService_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnRegister">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/UnRegister" message="tns:IPOGService_UnRegister_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/UnRegisterResponse" message="tns:IPOGService_UnRegister_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Connect">
       <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/Connect" message="tns:IPOGService_Connect_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/ConnectResponse" message="tns:IPOGService_Connect_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="true" name="Disconnect">
+    <wsdl:operation name="Disconnect">
       <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/Disconnect" message="tns:IPOGService_Disconnect_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/DisconnectResponse" message="tns:IPOGService_Disconnect_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetClients">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/GetClients" message="tns:IPOGService_GetClients_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/GetClientsResponse" message="tns:IPOGService_GetClients_OutputMessage" />
+    <wsdl:operation name="GetWouter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/GetWouter" message="tns:IPOGService_GetWouter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/GetWouterResponse" message="tns:IPOGService_GetWouter_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="GetMessages">
+    <wsdl:operation name="GetCharlotte">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/GetCharlotte" message="tns:IPOGService_GetCharlotte_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/GetCharlotteResponse" message="tns:IPOGService_GetCharlotte_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMessages">
       <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/GetMessages" message="tns:IPOGService_GetMessages_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/GetMessagesResponse" message="tns:IPOGService_GetMessages_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Say">
+    <wsdl:operation name="Say">
       <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/Say" message="tns:IPOGService_Say_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/SayResponse" message="tns:IPOGService_Say_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="IsWriting">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPOGService/IsWriting" message="tns:IPOGService_IsWriting_InputMessage" />
-    </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="RefreshClients">
+    <wsdl:operation name="RefreshClients">
       <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/RefreshClients" message="tns:IPOGService_RefreshClients_OutputCallbackMessage" />
     </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="Receive">
+    <wsdl:operation name="Receive">
       <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/Receive" message="tns:IPOGService_Receive_OutputCallbackMessage" />
-    </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="IsWritingCallback">
-      <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/IsWritingCallback" message="tns:IPOGService_IsWritingCallback_OutputCallbackMessage" />
-    </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UserJoin">
-      <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/UserJoin" message="tns:IPOGService_UserJoin_OutputCallbackMessage" />
-    </wsdl:operation>
-    <wsdl:operation msc:isInitiating="true" msc:isTerminating="false" name="UserLeave">
-      <wsdl:output wsaw:Action="http://tempuri.org/IPOGService/UserLeave" message="tns:IPOGService_UserLeave_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="pogService" type="tns:IPOGService">
     <wsp:PolicyReference URI="#pogService_policy">
     </wsp:PolicyReference>
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="Register">
+      <soap12:operation soapAction="http://tempuri.org/IPOGService/Register" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnRegister">
+      <soap12:operation soapAction="http://tempuri.org/IPOGService/UnRegister" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Connect">
       <soap12:operation soapAction="http://tempuri.org/IPOGService/Connect" style="document" />
       <wsdl:input>
@@ -116,9 +148,21 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetClients">
-      <soap12:operation soapAction="http://tempuri.org/IPOGService/GetClients" style="document" />
+    <wsdl:operation name="GetWouter">
+      <soap12:operation soapAction="http://tempuri.org/IPOGService/GetWouter" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCharlotte">
+      <soap12:operation soapAction="http://tempuri.org/IPOGService/GetCharlotte" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -140,12 +184,9 @@
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
-    </wsdl:operation>
-    <wsdl:operation name="IsWriting">
-      <soap12:operation soapAction="http://tempuri.org/IPOGService/IsWriting" style="document" />
-      <wsdl:input>
+      <wsdl:output>
         <soap12:body use="literal" />
-      </wsdl:input>
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="RefreshClients">
       <soap12:operation soapAction="http://tempuri.org/IPOGService/RefreshClients" style="document" />
@@ -155,24 +196,6 @@
     </wsdl:operation>
     <wsdl:operation name="Receive">
       <soap12:operation soapAction="http://tempuri.org/IPOGService/Receive" style="document" />
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IsWritingCallback">
-      <soap12:operation soapAction="http://tempuri.org/IPOGService/IsWritingCallback" style="document" />
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UserJoin">
-      <soap12:operation soapAction="http://tempuri.org/IPOGService/UserJoin" style="document" />
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UserLeave">
-      <soap12:operation soapAction="http://tempuri.org/IPOGService/UserLeave" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>

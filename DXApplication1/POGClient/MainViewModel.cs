@@ -2,30 +2,30 @@
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Mvvm.POCO;
-using POGApp;
 using POGClient.ServiceReference;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
 
 namespace POGClient
 {
     [POCOViewModel()]
-    [CallbackBehavior(ConcurrencyMode = ConcurrencyMode.Multiple, UseSynchronizationContext = false)]
+    [CallbackBehavior]
     public class MainViewModel : IPOGServiceCallback
     {
         // Variables
         private POGServiceClient serviceClient;
 
+        private readonly Client cClient = new Client() { Id = Client.C_ID, Name = "Charlotte", LoggedIn = false };
+        private readonly Client wClient = new Client() { Id = Client.W_ID, Name = "Wouter", LoggedIn = false };
+        private readonly BindingList<Client> clients;
+
         // MVVM
         public virtual bool Connected { get; protected set; }
         public virtual bool LoggedIn { get; protected set; }
         public virtual DateTime LastCommunication { get; protected set; }
-        public virtual Client Client { get; protected set; }
-        public virtual BindingList<Client> Clients { get; protected set; } = new BindingList<Client>();
         public virtual BindingList<Message> Messages { get; protected set; }
 
         public virtual string MessageText { get; set; }
@@ -34,24 +34,36 @@ namespace POGClient
         public virtual IMessageBoxService MessageBoxService { get { throw new NotImplementedException(); } }
         public virtual IDispatcherService DispatcherService { get { throw new NotImplementedException(); } }
 
-
-        private void UpdateClients(IEnumerable<Client> newClients)
+        // Ctor
+        public MainViewModel()
         {
-            foreach (Client newC in newClients)
+            clients = new BindingList<Client>() { cClient, wClient };
+        }
+
+        // General properties
+        public virtual Client Me
+        {
+            get
             {
-                Client oldC = Clients.FirstOrDefault(c => c.Id == newC.Id);
-                if (oldC != null)
-                {
-                    oldC.CopyFrom(newC);
-                }
-                else
-                {
-                    Clients.Add(newC);
-                }
+                if (ClientSettings.Cs.ClientId == Client.C_ID) return cClient;
+                else return wClient;
             }
-            if (Client == null)
+        }
+
+        public virtual Client Other
+        {
+            get
             {
-                Client = Clients.FirstOrDefault(c => c.Id == ClientSettings.Cs.ClientId);
+                if (ClientSettings.Cs.ClientId == Client.C_ID) return wClient;
+                else return cClient;
+            }
+        }
+
+        public virtual BindingList<Client> Clients
+        {
+            get
+            {
+                return clients;
             }
         }
 
@@ -64,30 +76,21 @@ namespace POGClient
             if (Connected)
             {
                 Messages = new BindingList<Message>();
-                FetchAllClients();
+                FetchClients();
                 FetchAllMessages();
             }
         }
 
         public virtual void Stop()
         {
-            if (serviceClient != null && Client != null)
+            if (serviceClient != null && Me != null)
             {
-                Call(c =>
+                Task.Factory.StartNew(() =>
                 {
-                    Task.Factory.StartNew((dispatcher) =>
+                    Call(c =>
                     {
-                        c.Disconnect(Client.Id);
-                        try
-                        {
-                            serviceClient.Close();
-                        }
-                        catch
-                        {
-                            //
-                        }
-                    }, DispatcherService);
-
+                        c.UnRegister(Me.Id);
+                    });
                 });
             }
         }
@@ -101,45 +104,35 @@ namespace POGClient
 
         public virtual bool CanLogIn()
         {
-            return Connected && Client != null && !string.IsNullOrEmpty(Client.Name);
+            return Connected && Me != null && !string.IsNullOrEmpty(Me.Name);
         }
 
         public virtual void LogIn()
         {
-            Call(c =>
+            Task.Factory.StartNew(() =>
             {
-                Task.Factory.StartNew((dispatcher) =>
+                Call(c =>
                 {
-                    serviceClient.Connect(Client);
-                    ((IDispatcherService)dispatcher).BeginInvoke(() =>
-                    {
-                        LoggedIn = true;
-                        Client.LoggedIn = true;
-                        UpdateCommands();
-                    });
-                }, DispatcherService);
-
+                    c.Connect(Me);
+                });
             });
         }
 
         public virtual bool CanLogOut()
         {
-            return Connected && Client != null && Client.LoggedIn;
+            return Connected && Me != null && Me.LoggedIn;
         }
 
         public virtual void LogOut()
         {
-            if (serviceClient != null && Client != null)
+            if (serviceClient != null && Me != null)
             {
-                Call(c =>
+                Task.Factory.StartNew(() =>
                 {
-                    Task.Factory.StartNew((dispatcher) =>
+                    Call(c =>
                     {
-                        c.Disconnect(Client.Id);
-                        Client.LoggedIn = false;
-                        LoggedIn = false;
-                    }, DispatcherService);
-
+                        c.Disconnect(Me.Id);
+                    });
                 });
             }
         }
@@ -168,61 +161,58 @@ namespace POGClient
 
         public virtual bool CanSendMessage()
         {
-            return Connected && Client != null && Client.Id > 0 && !string.IsNullOrEmpty(MessageText);
+            return Connected && Me != null && Me.Id > 0 && !string.IsNullOrEmpty(MessageText);
         }
 
         public virtual void SendMessage()
         {
             Message m = new Message()
             {
-                Sender = Client.Id,
+                Sender = Me.Id,
                 Content = MessageText,
                 Time = DateTime.Now
             };
 
-            Call(c =>
+            Task.Factory.StartNew(() =>
             {
-                Task.Factory.StartNew(() =>
+                Call(c =>
                 {
                     c.Say(m);
                 });
-                
-                Messages.Add(m);
-                UpdateCommands();
             });
         }
 
-        private void FetchAllClients()
+        private void FetchClients()
         {
-            Call(c =>
+            Task.Factory.StartNew((dispatcher) =>
             {
-                Task.Factory.StartNew((dispatcher) =>
+                Call(c =>
                 {
-                    List<Client> newClients = c.GetClients();
+                    Client newW = c.GetWouter();
+                    Client newC = c.GetCharlotte();
                     ((IDispatcherService)dispatcher).BeginInvoke(() =>
                     {
-                        UpdateClients(newClients);
+                        cClient.CopyFrom(newC);
+                        wClient.CopyFrom(newW);
                         UpdateCommands();
                     });
-                }, DispatcherService);
-
-            });
+                });
+            }, DispatcherService);
         }
 
         private void FetchAllMessages()
         {
-            Call(c =>
+            Task.Factory.StartNew((dispatcher) =>
             {
-                Task.Factory.StartNew((dispatcher) =>
+                Call(c =>
                 {
                     List<Message> messages = c.GetMessages();
                     ((IDispatcherService)dispatcher).BeginInvoke(() =>
                     {
                         Messages = new BindingList<Message>(messages);
                     });
-                }, DispatcherService);
-
-            });
+                });
+            }, DispatcherService);
         }
 
         #region WebCall Helpers
@@ -230,10 +220,10 @@ namespace POGClient
         private void ShowWebCallError(string error, Exception e)
         {
             Connected = false;
-            if (e != null && ClientSettings.Cs.ShowExceptions)
-            {
-                error += "\n" + e;
-            }
+            //if (e != null && ClientSettings.Cs.ShowExceptions)
+            //{
+            //    error += "\n" + e;
+            //}
 
             MessageBoxService.ShowMessage(
                 error,
@@ -251,6 +241,7 @@ namespace POGClient
             try
             {
                 serviceClient.Open();
+                serviceClient.Register(Me.Id);
                 Connected = true;
             }
             catch (Exception e)
@@ -292,60 +283,21 @@ namespace POGClient
 
         #region IPOGCallback Interface
 
-        public void RefreshClients(List<Client> clients)
+        public void RefreshClients(Client cClient, Client wClient)
         {
-            Task.Factory.StartNew((dispatcher) =>
+            DispatcherService?.BeginInvoke(() =>
             {
-                // Do checks?
-                List<Client> newClients = new List<Client>();
-                if (clients != null)
-                {
-                    newClients.AddRange(clients);
-                }
-                ((IDispatcherService)dispatcher).BeginInvoke(() =>
-                {
-                    UpdateClients(newClients);
-                });
-            }, DispatcherService);
+                this.cClient.CopyFrom(cClient);
+                this.wClient.CopyFrom(wClient);
+                LoggedIn = Me.LoggedIn;
+                UpdateCommands();
+            });
         }
 
         public void Receive(Message msg)
         {
-            msg.Color = Client.Color;
+            msg.Color = Other.Color;
             Messages.Add(msg);
-        }
-
-        public void IsWritingCallback(long client)
-        {
-
-        }
-        
-        public void UserJoin(Client client)
-        {
-            if (Clients != null && client != null)
-            {
-                foreach (Client c in Clients)
-                {
-                    if (c.Id == client.Id)
-                    {
-                        c.LoggedIn = true;
-                    }
-                }
-            }
-        }
-
-        public void UserLeave(Client client)
-        {
-            if (Clients != null && client != null)
-            {
-                foreach (Client c in Clients)
-                {
-                    if (c.Id == client.Id)
-                    {
-                        c.LoggedIn = false;
-                    }
-                }
-            }
         }
 
         #endregion

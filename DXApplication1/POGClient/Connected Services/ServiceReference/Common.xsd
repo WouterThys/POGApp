@@ -21,12 +21,6 @@
     <xs:sequence />
   </xs:complexType>
   <xs:element name="BaseClass" nillable="true" type="tns:BaseClass" />
-  <xs:complexType name="ArrayOfClient">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Client" nillable="true" type="tns:Client" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfClient" nillable="true" type="tns:ArrayOfClient" />
   <xs:complexType name="ArrayOfMessage">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Message" nillable="true" type="tns:Message" />
@@ -37,6 +31,7 @@
     <xs:sequence>
       <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="Color" type="q2:Color" />
       <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Info" type="xs:boolean" />
       <xs:element minOccurs="0" name="Sender" type="xs:long" />
       <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
     </xs:sequence>

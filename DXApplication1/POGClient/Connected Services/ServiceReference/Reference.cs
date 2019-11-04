@@ -12,8 +12,20 @@ namespace POGClient.ServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IPOGService", CallbackContract=typeof(POGClient.ServiceReference.IPOGServiceCallback), SessionMode=System.ServiceModel.SessionMode.Required)]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IPOGService", CallbackContract=typeof(POGClient.ServiceReference.IPOGServiceCallback))]
     public interface IPOGService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/Register", ReplyAction="http://tempuri.org/IPOGService/RegisterResponse")]
+        void Register(long id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/Register", ReplyAction="http://tempuri.org/IPOGService/RegisterResponse")]
+        System.Threading.Tasks.Task RegisterAsync(long id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/UnRegister", ReplyAction="http://tempuri.org/IPOGService/UnRegisterResponse")]
+        void UnRegister(long id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/UnRegister", ReplyAction="http://tempuri.org/IPOGService/UnRegisterResponse")]
+        System.Threading.Tasks.Task UnRegisterAsync(long id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/Connect", ReplyAction="http://tempuri.org/IPOGService/ConnectResponse")]
         void Connect(Common.Client client);
@@ -21,17 +33,23 @@ namespace POGClient.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/Connect", ReplyAction="http://tempuri.org/IPOGService/ConnectResponse")]
         System.Threading.Tasks.Task ConnectAsync(Common.Client client);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsTerminating=true, Action="http://tempuri.org/IPOGService/Disconnect")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/Disconnect", ReplyAction="http://tempuri.org/IPOGService/DisconnectResponse")]
         void Disconnect(long id);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, IsTerminating=true, Action="http://tempuri.org/IPOGService/Disconnect")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/Disconnect", ReplyAction="http://tempuri.org/IPOGService/DisconnectResponse")]
         System.Threading.Tasks.Task DisconnectAsync(long id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/GetClients", ReplyAction="http://tempuri.org/IPOGService/GetClientsResponse")]
-        System.Collections.Generic.List<Common.Client> GetClients();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/GetWouter", ReplyAction="http://tempuri.org/IPOGService/GetWouterResponse")]
+        Common.Client GetWouter();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/GetClients", ReplyAction="http://tempuri.org/IPOGService/GetClientsResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<Common.Client>> GetClientsAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/GetWouter", ReplyAction="http://tempuri.org/IPOGService/GetWouterResponse")]
+        System.Threading.Tasks.Task<Common.Client> GetWouterAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/GetCharlotte", ReplyAction="http://tempuri.org/IPOGService/GetCharlotteResponse")]
+        Common.Client GetCharlotte();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/GetCharlotte", ReplyAction="http://tempuri.org/IPOGService/GetCharlotteResponse")]
+        System.Threading.Tasks.Task<Common.Client> GetCharlotteAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/GetMessages", ReplyAction="http://tempuri.org/IPOGService/GetMessagesResponse")]
         System.Collections.Generic.List<Common.Message> GetMessages();
@@ -39,36 +57,21 @@ namespace POGClient.ServiceReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/GetMessages", ReplyAction="http://tempuri.org/IPOGService/GetMessagesResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<Common.Message>> GetMessagesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/Say")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/Say", ReplyAction="http://tempuri.org/IPOGService/SayResponse")]
         void Say(Common.Message msg);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/Say")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPOGService/Say", ReplyAction="http://tempuri.org/IPOGService/SayResponse")]
         System.Threading.Tasks.Task SayAsync(Common.Message msg);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/IsWriting")]
-        void IsWriting(long client);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/IsWriting")]
-        System.Threading.Tasks.Task IsWritingAsync(long client);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IPOGServiceCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/RefreshClients")]
-        void RefreshClients(System.Collections.Generic.List<Common.Client> clients);
+        void RefreshClients(Common.Client cClient, Common.Client wClient);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/Receive")]
         void Receive(Common.Message msg);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/IsWritingCallback")]
-        void IsWritingCallback(long client);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/UserJoin")]
-        void UserJoin(Common.Client client);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IPOGService/UserLeave")]
-        void UserLeave(Common.Client client);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -99,6 +102,22 @@ namespace POGClient.ServiceReference {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
+        public void Register(long id) {
+            base.Channel.Register(id);
+        }
+        
+        public System.Threading.Tasks.Task RegisterAsync(long id) {
+            return base.Channel.RegisterAsync(id);
+        }
+        
+        public void UnRegister(long id) {
+            base.Channel.UnRegister(id);
+        }
+        
+        public System.Threading.Tasks.Task UnRegisterAsync(long id) {
+            return base.Channel.UnRegisterAsync(id);
+        }
+        
         public void Connect(Common.Client client) {
             base.Channel.Connect(client);
         }
@@ -115,12 +134,20 @@ namespace POGClient.ServiceReference {
             return base.Channel.DisconnectAsync(id);
         }
         
-        public System.Collections.Generic.List<Common.Client> GetClients() {
-            return base.Channel.GetClients();
+        public Common.Client GetWouter() {
+            return base.Channel.GetWouter();
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<Common.Client>> GetClientsAsync() {
-            return base.Channel.GetClientsAsync();
+        public System.Threading.Tasks.Task<Common.Client> GetWouterAsync() {
+            return base.Channel.GetWouterAsync();
+        }
+        
+        public Common.Client GetCharlotte() {
+            return base.Channel.GetCharlotte();
+        }
+        
+        public System.Threading.Tasks.Task<Common.Client> GetCharlotteAsync() {
+            return base.Channel.GetCharlotteAsync();
         }
         
         public System.Collections.Generic.List<Common.Message> GetMessages() {
@@ -137,14 +164,6 @@ namespace POGClient.ServiceReference {
         
         public System.Threading.Tasks.Task SayAsync(Common.Message msg) {
             return base.Channel.SayAsync(msg);
-        }
-        
-        public void IsWriting(long client) {
-            base.Channel.IsWriting(client);
-        }
-        
-        public System.Threading.Tasks.Task IsWritingAsync(long client) {
-            return base.Channel.IsWritingAsync(client);
         }
     }
 }
