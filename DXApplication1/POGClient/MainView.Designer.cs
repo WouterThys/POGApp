@@ -98,6 +98,7 @@
             this.ItemForClientName = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForClientInfo = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.bbiSendNudes = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.riCeLoggedIn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icLogStates)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riPeImage)).BeginInit();
@@ -326,7 +327,7 @@
             this.btnSendMessage.Name = "btnSendMessage";
             this.btnSendMessage.Size = new System.Drawing.Size(81, 118);
             this.btnSendMessage.TabIndex = 1;
-            this.btnSendMessage.Text = "Send";
+            this.btnSendMessage.Text = "Klaar";
             // 
             // rightPanel
             // 
@@ -381,9 +382,10 @@
             this.barManager.DockControls.Add(this.barDockControlRight);
             this.barManager.Form = this;
             this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.bbiLogOut});
+            this.bbiLogOut,
+            this.bbiSendNudes});
             this.barManager.MainMenu = this.bar2;
-            this.barManager.MaxItemId = 1;
+            this.barManager.MaxItemId = 2;
             this.barManager.OptionsLayout.AllowAddNewItems = false;
             // 
             // bar2
@@ -394,7 +396,8 @@
             this.bar2.DockRow = 0;
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiLogOut)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiLogOut),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiSendNudes)});
             this.bar2.OptionsBar.AllowQuickCustomization = false;
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
@@ -611,15 +614,15 @@
             this.btnLogIn.Size = new System.Drawing.Size(158, 30);
             this.btnLogIn.StyleController = this.dlcLogIn;
             this.btnLogIn.TabIndex = 7;
-            this.btnLogIn.Text = "Start Awesomness";
+            this.btnLogIn.Text = "Knop met pijl";
             // 
             // ClientNameTextEdit
             // 
             this.ClientNameTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsClient, "Name", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ClientNameTextEdit.Location = new System.Drawing.Point(442, 111);
+            this.ClientNameTextEdit.Location = new System.Drawing.Point(492, 111);
             this.ClientNameTextEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ClientNameTextEdit.Name = "ClientNameTextEdit";
-            this.ClientNameTextEdit.Size = new System.Drawing.Size(301, 20);
+            this.ClientNameTextEdit.Size = new System.Drawing.Size(251, 20);
             this.ClientNameTextEdit.StyleController = this.dlcLogIn;
             this.ClientNameTextEdit.TabIndex = 8;
             // 
@@ -631,10 +634,10 @@
             // ClientInfoTextEdit
             // 
             this.ClientInfoTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bsClient, "Info", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.ClientInfoTextEdit.Location = new System.Drawing.Point(442, 135);
+            this.ClientInfoTextEdit.Location = new System.Drawing.Point(492, 135);
             this.ClientInfoTextEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ClientInfoTextEdit.Name = "ClientInfoTextEdit";
-            this.ClientInfoTextEdit.Size = new System.Drawing.Size(301, 20);
+            this.ClientInfoTextEdit.Size = new System.Drawing.Size(251, 20);
             this.ClientInfoTextEdit.StyleController = this.dlcLogIn;
             this.ClientInfoTextEdit.TabIndex = 9;
             // 
@@ -863,8 +866,8 @@
             this.ItemForClientName.Location = new System.Drawing.Point(400, 99);
             this.ItemForClientName.Name = "ItemForClientName";
             this.ItemForClientName.Size = new System.Drawing.Size(335, 24);
-            this.ItemForClientName.Text = "Name";
-            this.ItemForClientName.TextSize = new System.Drawing.Size(27, 13);
+            this.ItemForClientName.Text = "POG Naam";
+            this.ItemForClientName.TextSize = new System.Drawing.Size(77, 13);
             // 
             // ItemForClientInfo
             // 
@@ -872,8 +875,8 @@
             this.ItemForClientInfo.Location = new System.Drawing.Point(400, 123);
             this.ItemForClientInfo.Name = "ItemForClientInfo";
             this.ItemForClientInfo.Size = new System.Drawing.Size(335, 24);
-            this.ItemForClientInfo.Text = "Info";
-            this.ItemForClientInfo.TextSize = new System.Drawing.Size(27, 13);
+            this.ItemForClientInfo.Text = "Overbodige info";
+            this.ItemForClientInfo.TextSize = new System.Drawing.Size(77, 13);
             // 
             // emptySpaceItem1
             // 
@@ -882,6 +885,14 @@
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(493, 221);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // bbiSendNudes
+            // 
+            this.bbiSendNudes.Caption = "Send nudes";
+            this.bbiSendNudes.Id = 1;
+            this.bbiSendNudes.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiSendNudes.ImageOptions.Image")));
+            this.bbiSendNudes.Name = "bbiSendNudes";
+            this.bbiSendNudes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSendNudes_ItemClick);
             // 
             // MainView
             // 
@@ -895,7 +906,7 @@
             this.Controls.Add(this.barDockControlTop);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainView";
-            this.Text = "POG Chat";
+            this.Text = "POG Chat 2000";
             ((System.ComponentModel.ISupportInitialize)(this.riCeLoggedIn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icLogStates)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.riPeImage)).EndInit();
@@ -1002,6 +1013,7 @@
         private DevExpress.XtraEditors.CheckEdit ceOnline;
         private DevExpress.XtraEditors.LabelControl lblOtherName;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit riMemoEdit;
+        private DevExpress.XtraBars.BarButtonItem bbiSendNudes;
     }
 }
 

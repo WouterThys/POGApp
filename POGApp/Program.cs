@@ -17,8 +17,6 @@ namespace POGApp
 
         public static void Main(string[] args)
         {
-            //Run(new Program());
-
             var host = new ServiceHost(typeof(POGService));
             try
             {

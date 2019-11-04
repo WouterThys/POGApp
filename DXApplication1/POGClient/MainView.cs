@@ -2,11 +2,13 @@
 using DevExpress.Utils;
 using DevExpress.Utils.Drawing.Helpers;
 using DevExpress.Utils.MVVM.Services;
+using DevExpress.XtraBars;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Camera;
 using DevExpress.XtraEditors.Controls;
-using DevExpress.XtraGrid.Views.Base;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace POGClient
@@ -39,6 +41,7 @@ namespace POGClient
             xtraTabControl.SelectedTabPageIndex = 0;
 
             tileView.ItemCustomize += TileView_ItemCustomize;
+            bbiSendNudes.Visibility = BarItemVisibility.Never;
 
             gvMessages.OptionsBehavior.Editable = false;
             gvMessages.RowCellStyle += GvMessages_RowCellStyle;
@@ -61,6 +64,7 @@ namespace POGClient
             fluent.SetObjectDataSourceBinding(bsClient, m => m.Me, m => m.UpdateCommands());
             fluent.SetObjectDataSourceBinding(bsClients, m => m.Clients, m => m.UpdateCommands());
             fluent.SetObjectDataSourceBinding(bsMessages, m => m.Messages);
+
             
             fluent.WithEvent<KeyEventArgs>(meMessageText, "KeyDown").EventToCommand(
                 m => m.KeyPressed(null));
@@ -73,10 +77,12 @@ namespace POGClient
                     {
                         clientId = fluent.ViewModel.Me.Id;
                         xtraTabControl.SelectedTabPageIndex = 1;
+                        bbiSendNudes.Visibility = BarItemVisibility.Always;
                     }
                     else
                     {
                         xtraTabControl.SelectedTabPageIndex = 0;
+                        bbiSendNudes.Visibility = BarItemVisibility.Never;
                     }
                 }));
             });
@@ -139,35 +145,39 @@ namespace POGClient
                 {
                     e.Appearance.TextOptions.HAlignment = HorzAlignment.Near;
                 }
+                if (m.IsPicture)
+                {
+                    e.Appearance.FontStyleDelta = FontStyle.Underline;
+                }
+                else
+                {
+                    e.Appearance.FontStyleDelta = FontStyle.Regular;
+                }
             }
         }
 
-        //private void GridView_CustomDrawCell(object sender, RowCellCustomDrawEventArgs e)
-        //{
-        //    Common.Message m = (Common.Message)gvMessages.GetRow(e.RowHandle);
-        //    if (m != null)
-        //    {
-        //        if (m.Sender == clientId)
-        //        {
-        //            e.Appearance.TextOptions.HAlignment = HorzAlignment.Far;
-        //            e.Appearance.ForeColor = Color.Blue;
-        //            //e.Graphics.DrawImage(new Bitmap(@"left.png"), e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height);
-        //            //Rectangle bounds = e.Bounds;
-        //            //bounds.Offset(-30, 0);
-        //            //e.Cache.DrawString(e.DisplayText, e.Appearance.Font, Brushes.Black, bounds, e.Appearance.GetStringFormat());
-        //        }
-        //        else
-        //        {
-        //            //Rectangle bounds = e.Bounds;
-        //            //bounds.Offset(30, 0);
-        //            e.Appearance.TextOptions.HAlignment = HorzAlignment.Near;
-        //            e.Appearance.ForeColor = Color.Green;
-        //            //e.Graphics.DrawImage(new Bitmap(@"right.png"), e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height);
-        //            //e.Cache.DrawString(e.DisplayText, e.Appearance.Font, Brushes.Black, bounds, e.Appearance.GetStringFormat());
-        //        }
-        //        e.Handled = true;
-        //    }
-        //}
+        private void bbiSendNudes_ItemClick(object sender, ItemClickEventArgs e)
+        {
+             TakePictureDialog dialog = new TakePictureDialog();
+            if (dialog.ShowDialog("Send nudes") == DialogResult.OK)
+            {
+                Image image = dialog.Image;
+                string tmp = Path.GetTempFileName();
+                image.Save(tmp);
+                
+                var fluent = mvvmContext.OfType<MainViewModel>();
+                fluent.ViewModel.SendPicture(tmp, ImageToByteArray(dialog.Image));
+            }
+        }
+
+        public byte[] ImageToByteArray(Image imageIn)
+        {
+            using (var ms = new MemoryStream())
+            {
+                imageIn.Save(ms, imageIn.RawFormat);
+                return ms.ToArray();
+            }
+        }
 
     }
 }

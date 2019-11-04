@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Common
 {
@@ -28,6 +24,9 @@ namespace Common
         private DateTime time;
         private Color color;
         private bool info;
+
+        private bool isPicture;
+        private string picture;
 
         public override string ToString()
         {
@@ -68,5 +67,20 @@ namespace Common
             get { return info; }
             set { info = value; }
         }
+
+        [DataMember]
+        public bool IsPicture
+        {
+            get { return isPicture; }
+            set { isPicture = value; }
+        }
+
+        [DataMember]
+        public string Picture
+        {
+            get { return picture; }
+            set { picture = value; }
+        }
+
     }
 }

@@ -6,6 +6,7 @@ using POGClient.ServiceReference;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.ServiceModel;
 using System.Threading.Tasks;
 
@@ -170,7 +171,8 @@ namespace POGClient
             {
                 Sender = Me.Id,
                 Content = MessageText,
-                Time = DateTime.Now
+                Time = DateTime.Now,
+                IsPicture = false
             };
 
             Task.Factory.StartNew(() =>
@@ -180,6 +182,18 @@ namespace POGClient
                     c.Say(m);
                 });
             });
+        }
+
+        public virtual void SendPicture(string file, byte[] picture)
+        {
+            Message m = new Message()
+            {
+                Sender = Me.Id,
+                Content = file,
+                Time = DateTime.Now,
+                IsPicture = true,
+                Picture = Convert.ToBase64String(picture)
+            };
         }
 
         private void FetchClients()
@@ -298,6 +312,18 @@ namespace POGClient
         {
             msg.Color = Other.Color;
             Messages.Add(msg);
+            if (msg.IsPicture)
+            {
+                msg.Content = "Got nudes!";
+                Task.Factory.StartNew(() => 
+                {
+                    byte[] data = Convert.FromBase64String(msg.Picture);
+                    string name = Guid.NewGuid() + ".png";
+                    string file = Path.Combine(Path.GetTempPath(), name);
+                    File.WriteAllBytes(file, data);
+                    msg.Content = file;
+                });
+            }
         }
 
         #endregion

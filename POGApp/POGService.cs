@@ -57,7 +57,7 @@ namespace POGApp
         {
             try
             {
-                Console.WriteLine("Connect " + client);
+                //Console.WriteLine("Connect " + client);
                 lock (syncObj)
                 {
                     client.LoggedIn = true;
@@ -83,7 +83,7 @@ namespace POGApp
         {
             try
             {
-                Console.WriteLine("GetWouter");
+               // Console.WriteLine("GetWouter");
                 return wClient;
             }
             catch (Exception e)
@@ -97,7 +97,7 @@ namespace POGApp
         {
             try
             {
-                Console.WriteLine("GetCharlotte");
+                //Console.WriteLine("GetCharlotte");
                 return cClient;
             }
             catch (Exception e)
@@ -111,7 +111,7 @@ namespace POGApp
         {
             try
             {
-                Console.WriteLine("GetMessages");
+                //Console.WriteLine("GetMessages");
                 lock (syncObj)
                 {
                     return new List<Message>(messages);
@@ -159,7 +159,7 @@ namespace POGApp
         {
             try
             {
-                Console.WriteLine("Say " + msg);
+                //Console.WriteLine("Say " + msg);
                 lock (syncObj)
                 {
                     SendInfo(msg);
@@ -182,12 +182,12 @@ namespace POGApp
                 if (id == Client.C_ID)
                 {
                     cClient.LoggedIn = false;
-                    Console.WriteLine("Disconnect " + cClient);
+                    //Console.WriteLine("Disconnect " + cClient);
                 }
                 else
                 {
                     wClient.LoggedIn = false;
-                    Console.WriteLine("Disconnect " + wClient);
+                    //Console.WriteLine("Disconnect " + wClient);
                 }
                 cCallback?.RefreshClients(cClient, wClient);
                 wCallback?.RefreshClients(cClient, wClient);
