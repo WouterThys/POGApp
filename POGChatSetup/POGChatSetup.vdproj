@@ -424,12 +424,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_960AB89011ADE4724129B8072BC65E6C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_17ACA9C4592A46C38B36FE1B8A9B0689"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -535,6 +529,12 @@
         "OwnerKey" = "8:_53FD1B210C07675816F2553AE948B23C"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_960AB89011ADE4724129B8072BC65E6C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -553,6 +553,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -569,6 +585,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -1306,7 +1330,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:POG Chat 2000"
         "ProductCode" = "8:{F556E327-9230-4FEC-8C30-33AE45477A98}"
-        "PackageCode" = "8:{27079EFE-864B-4C46-A670-FCDDB36F34BC}"
+        "PackageCode" = "8:{AD98F4D4-893A-4FF4-9FE5-84E29CE40AE6}"
         "UpgradeCode" = "8:{CBBDED45-4078-4D9F-949A-6F2562A2BB57}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1428,30 +1452,16 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_0BAF471684E140859A63A3618AC735CA"
             {
-            "Name" = "8:POGChatSetup"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_17ACA9C4592A46C38B36FE1B8A9B0689"
-            "Folder" = "8:_A456A7EB5DDE4584BDA78B7CB2AD1533"
-            "WorkingFolder" = "8:_84C5135CE71245A691BEF88FB40E700B"
-            "Icon" = "8:_9EE2DFF54E5C44FE8F87EEB93C0F12E0"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_91D83B2536FC4825B8BEC4B932317E75"
-            {
             "Name" = "8:POG Chat 2000"
             "Arguments" = "8:"
-            "Description" = "8:"
+            "Description" = "8:Proffesioneel Officieel Geweldig"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
             "Target" = "8:_17ACA9C4592A46C38B36FE1B8A9B0689"
             "Folder" = "8:_94105DFFA018452E82E8B761AC3FDA99"
             "WorkingFolder" = "8:_84C5135CE71245A691BEF88FB40E700B"
-            "Icon" = "8:"
+            "Icon" = "8:_9EE2DFF54E5C44FE8F87EEB93C0F12E0"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_9B7CBB0D61514526A27F2597A91AFFC6"
