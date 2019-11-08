@@ -9,7 +9,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-using System.Media;
 using System.ServiceModel;
 using System.Threading.Tasks;
 
@@ -38,10 +37,18 @@ namespace POGClient
         public virtual IMessageBoxService MessageBoxService { get { throw new NotImplementedException(); } }
         public virtual IDispatcherService DispatcherService { get { throw new NotImplementedException(); } }
 
-        //// Sounds
+        // Sounds
         public virtual BindingList<string> Sounds { get; protected set; }
-        private WaveOutEvent outputDevice;
-        private AudioFileReader audioFile;
+        public virtual bool DoShake { get; set; }
+        private WaveOutEvent soundDevice;
+        private AudioFileReader soundFile;
+        
+        private WaveOutEvent notifyDevice;
+        private AudioFileReader notifyFile;
+
+        // Slang
+        public virtual BindingList<Slang> SlangList { get; protected set; }
+        public virtual Slang SelectedSlang { get; set; }
 
         // Ctor
         public MainViewModel()
@@ -88,6 +95,9 @@ namespace POGClient
                 FetchClients();
                 FetchAllMessages();
                 LoadAllSounds();
+                LoadAllSlang();
+
+                Notification(@"Sounds/dialup.mp3");
             }
         }
 
@@ -153,6 +163,22 @@ namespace POGClient
             this.RaiseCanExecuteChanged(x => x.SendMessage());
         }
 
+        public virtual void OnSelectedSlangChanged()
+        {
+            if (SelectedSlang != null)
+            {
+                if (string.IsNullOrEmpty(MessageText))
+                {
+                    MessageText = SelectedSlang.Code + " ";
+                }
+                else
+                {
+                    MessageText += " " + SelectedSlang.Code;
+                }
+                SelectedSlang = null;
+            }
+        }
+
         public virtual void KeyPressed(System.Windows.Forms.KeyEventArgs keyEvent)
         {
             if (keyEvent == null) return;
@@ -180,33 +206,7 @@ namespace POGClient
             Random random = new Random();
             int r = random.Next(Sounds.Count);
             string sound = Sounds[r];
-            if (!string.IsNullOrEmpty(sound))
-            {
-                try
-                {
-                    if (outputDevice == null)
-                    {
-                        outputDevice = new WaveOutEvent();
-                        outputDevice.PlaybackStopped += (s, e) =>
-                        {
-                            outputDevice.Dispose();
-                            outputDevice = null;
-                            audioFile.Dispose();
-                            audioFile = null;
-                        };
-                    }
-                    if (audioFile == null)
-                    {
-                        audioFile = new AudioFileReader(sound);
-                        outputDevice.Init(audioFile);
-                    }
-                    outputDevice.Play();
-                }
-                catch (Exception e)
-                {
-                    Debug.WriteLine("Play sound failed: " + e);
-                }
-            }
+            SendSound(sound);
         }
 
         public virtual bool CanSendMessage()
@@ -216,27 +216,20 @@ namespace POGClient
 
         public virtual void SendMessage()
         {
-            Message m = new Message()
-            {
-                Sender = Me.Id,
-                Content = MessageText,
-                Time = DateTime.Now,
-                IsPicture = false
-            };
+            Message m = Message.CreateMessage(Me, MessageText);
             MessageText = "";
             Send(m);
         }
 
         public virtual void SendPicture(string file, byte[] picture)
         {
-            Message m = new Message()
-            {
-                Sender = Me.Id,
-                Content = file,
-                Time = DateTime.Now,
-                IsPicture = true,
-                Picture = Convert.ToBase64String(picture)
-            };
+            Message m = Message.CreatePhoto(Me, Convert.ToBase64String(picture));
+            Send(m);
+        }
+
+        public virtual void SendSound(string sound)
+        {
+            Message m = Message.CreateSound(Me, sound);
             Send(m);
         }
 
@@ -303,15 +296,112 @@ namespace POGClient
             }, DispatcherService);
         }
 
+        private void LoadAllSlang()
+        {
+            Task.Factory.StartNew((dispatcher) =>
+            {
+                List<Slang> slang = new List<Slang>();
+                if (File.Exists("Config/slang.txt"))
+                {
+                    try
+                    {
+                        foreach (string line in File.ReadAllLines("Config/slang.txt"))
+                        {
+                            var split = line.Split(':');
+                            if (split.Length == 2)
+                            {
+                                slang.Add(new Slang()
+                                {
+                                    Code = split[0].Trim(),
+                                    Description = split[1].Trim()
+                                });
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.WriteLine("Faile to LoadAllSlang: " + e);
+                    }
+                }
+
+                ((IDispatcherService)dispatcher).BeginInvoke(() =>
+                {
+                    SlangList = new BindingList<Slang>(slang);
+                });
+            }, DispatcherService);
+        }
+
+        private void PlaySound(string sound)
+        {
+            if (!string.IsNullOrEmpty(sound))
+            {
+                try
+                {
+                    if (soundDevice == null)
+                    {
+                        soundDevice = new WaveOutEvent();
+                        soundDevice.PlaybackStopped += (s, e) =>
+                        {
+                            soundDevice.Dispose();
+                            soundDevice = null;
+                            soundFile.Dispose();
+                            soundFile = null;
+                        };
+                    }
+                    if (soundFile == null)
+                    {
+                        soundFile = new AudioFileReader(sound);
+                        soundDevice.Init(soundFile);
+                    }
+                    soundDevice.Play();
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine("Play sound failed: " + e);
+                }
+            }
+
+        }
+
+        private void Notification(string sound)
+        {
+            if (!string.IsNullOrEmpty(sound))
+            {
+                Task.Factory.StartNew(() =>
+                {
+                    try
+                    {
+                        if (notifyDevice == null)
+                        {
+                            notifyDevice = new WaveOutEvent();
+                            notifyDevice.PlaybackStopped += (s, e) =>
+                            {
+                                notifyDevice.Dispose();
+                                notifyDevice = null;
+                                notifyFile.Dispose();
+                                notifyFile = null;
+                            };
+                        }
+                        if (notifyFile == null)
+                        {
+                            notifyFile = new AudioFileReader(sound);
+                            notifyDevice.Init(notifyFile);
+                        }
+                        notifyDevice.Play();
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.WriteLine("Play sound failed: " + e);
+                    }
+                });
+            }
+        }
+        
         #region WebCall Helpers
 
         private void ShowWebCallError(string error, Exception e)
         {
             Connected = false;
-            //if (e != null && ClientSettings.Cs.ShowExceptions)
-            //{
-            //    error += "\n" + e;
-            //}
 
             MessageBoxService.ShowMessage(
                 error,
@@ -378,27 +468,49 @@ namespace POGClient
                 this.cClient.CopyFrom(cClient);
                 this.wClient.CopyFrom(wClient);
                 LoggedIn = Me.LoggedIn;
+                if (LoggedIn && notifyDevice != null)
+                {
+                    notifyDevice.Stop();
+                }
                 UpdateCommands();
             });
         }
 
         public void Receive(Message msg)
         {
-            msg.Color = Other.Color;
-            Messages.Add(msg);
-            if (msg.IsPicture)
+            switch (msg.Type)
             {
-                msg.Content = "Got nudes!";
-                Task.Factory.StartNew(() =>
-                {
-                    byte[] data = Convert.FromBase64String(msg.Picture);
-                    string name = Guid.NewGuid() + ".png";
-                    string file = Path.Combine(Path.GetTempPath(), name);
-                    File.WriteAllBytes(file, data);
-                    msg.Content = file;
-                });
+                case MessageType.Message:
+                case MessageType.Info:
+                    Messages.Add(msg);
+                    if (msg.Sender != Me.Id)
+                    {
+                        Notification(@"Sounds/alert.wav");
+                    }
+                    break;
+
+                case MessageType.Photo:
+                    Task.Factory.StartNew((disp) =>
+                    {
+                        byte[] data = Convert.FromBase64String(msg.Content);
+                        string name = Guid.NewGuid() + ".png";
+                        string file = Path.Combine(Path.GetTempPath(), name);
+                        File.WriteAllBytes(file, data);
+                        ((IDispatcherService)disp).BeginInvoke(() => { Messages.Add(msg); });
+                    }, DispatcherService);
+                    break;
+                case MessageType.Sound:
+                    Messages.Add(msg);
+                    Task.Factory.StartNew(() =>
+                    {
+                        PlaySound(msg.Content);
+                        DoShake = true;
+                    });
+                    break;
             }
+
         }
+
 
         #endregion
     }

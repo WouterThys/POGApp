@@ -31,10 +31,19 @@
     <xs:sequence>
       <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System.Drawing" minOccurs="0" name="Color" type="q2:Color" />
       <xs:element minOccurs="0" name="Content" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Info" type="xs:boolean" />
       <xs:element minOccurs="0" name="Sender" type="xs:long" />
       <xs:element minOccurs="0" name="Time" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Type" type="tns:MessageType" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Message" nillable="true" type="tns:Message" />
+  <xs:simpleType name="MessageType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Message" />
+      <xs:enumeration value="Info" />
+      <xs:enumeration value="Photo" />
+      <xs:enumeration value="Sound" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="MessageType" nillable="true" type="tns:MessageType" />
 </xs:schema>

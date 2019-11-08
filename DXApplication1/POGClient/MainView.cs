@@ -41,10 +41,11 @@ namespace POGClient
         {
             xtraTabControl.ShowTabHeader = DefaultBoolean.False;
             xtraTabControl.SelectedTabPageIndex = 0;
-
-            tileView.ItemCustomize += TileView_ItemCustomize;
+            
             bbiSendNudes.Visibility = BarItemVisibility.Never;
-
+            bbiMakeSound.Visibility = BarItemVisibility.Never;
+            beiSlang.Visibility = BarItemVisibility.Never;
+            
             gvMessages.OptionsBehavior.Editable = false;
             gvMessages.RowCellStyle += GvMessages_RowCellStyle;
             gvMessages.RowCountChanged += GvMessages_RowCountChanged;
@@ -68,7 +69,7 @@ namespace POGClient
             fluent.SetObjectDataSourceBinding(bsClient, m => m.Me, m => m.UpdateCommands());
             fluent.SetObjectDataSourceBinding(bsClients, m => m.Clients, m => m.UpdateCommands());
             fluent.SetObjectDataSourceBinding(bsMessages, m => m.Messages);
-
+            fluent.SetObjectDataSourceBinding(bsSlang, m => m.SlangList);
             
             fluent.WithEvent<KeyEventArgs>(meMessageText, "KeyDown").EventToCommand(
                 m => m.KeyPressed(null));
@@ -83,22 +84,34 @@ namespace POGClient
                         xtraTabControl.SelectedTabPageIndex = 1;
                         bbiSendNudes.Visibility = BarItemVisibility.Always;
                         bbiMakeSound.Visibility = BarItemVisibility.Always;
+                        beiSlang.Visibility = BarItemVisibility.Always;
                     }
                     else
                     {
                         xtraTabControl.SelectedTabPageIndex = 0;
                         bbiSendNudes.Visibility = BarItemVisibility.Never;
-                        bbiMakeSound.Visibility = BarItemVisibility.Never;
+                        beiSlang.Visibility = BarItemVisibility.Never;
                     }
                 }));
             });
             fluent.SetTrigger(m => m.Me.Avatar, id => { peMe.Image = icAvatars.Images[id]; });
             fluent.SetTrigger(m => m.Other.Avatar, id => { peOther.Image = icAvatars.Images[id]; });
+            fluent.SetTrigger(m => m.DoShake, shake => {
+                if (shake)
+                {
+                    this.BeginInvoke(new Action(() => 
+                    {
+                        Shake();
+                    }));
+                    fluent.ViewModel.DoShake = false;
+                }
+            });
 
             fluent.SetBinding(this, v => v.Text, m => m.Me.Title);
             fluent.SetBinding(meMessageText, me => me.Text, m => m.MessageText);
             fluent.SetBinding(ceOnline, ce => ce.EditValue, m => m.Other.LoggedIn);
             fluent.SetBinding(lblOtherName, lbl => lbl.Text, m => m.Other.Name);
+            fluent.SetBinding(beiSlang, bei => bei.EditValue, m => m.SelectedSlang);
             
             fluent.BindCommand(btnLogIn, m => m.LogIn());
             fluent.BindCommand(btnSendMessage, m => m.SendMessage());
@@ -112,39 +125,47 @@ namespace POGClient
             gvMessages.MoveLast();
         }
 
-        void TileView_ItemCustomize(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventArgs e)
-        {
-            if ((bool)this.tileView.GetRowCellValue(e.RowHandle, "LoggedIn"))
-            {
-                e.Item.Elements[2].Image = icLogStates.Images[0];
-                e.Item.Elements[2].Text = string.Empty;
-            }
-            else
-            {
-                e.Item.Elements[2].Image = icLogStates.Images[1];
-                e.Item.Elements[2].Text = string.Empty;
-            }
+        //void TileView_ItemCustomize(object sender, DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventArgs e)
+        //{
+        //    if ((bool)this.tileView.GetRowCellValue(e.RowHandle, "LoggedIn"))
+        //    {
+        //        e.Item.Elements[2].Image = icLogStates.Images[0];
+        //        e.Item.Elements[2].Text = string.Empty;
+        //    }
+        //    else
+        //    {
+        //        e.Item.Elements[2].Image = icLogStates.Images[1];
+        //        e.Item.Elements[2].Text = string.Empty;
+        //    }
 
-            int ndx = (int)this.tileView.GetRowCellValue(e.RowHandle, "Avatar");
-            e.Item.Elements[3].Image = icAvatars.Images[ndx];
-            e.Item.Elements[3].Text = string.Empty;
-        }
+        //    int ndx = (int)this.tileView.GetRowCellValue(e.RowHandle, "Avatar");
+        //    e.Item.Elements[3].Image = icAvatars.Images[ndx];
+        //    e.Item.Elements[3].Text = string.Empty;
+        //}
 
         private void GvMessages_RowCellStyle(object sender, RowCellStyleEventArgs e)
         {
             Common.Message m = (Common.Message)gvMessages.GetRow(e.RowHandle);
-            if (m != null && !m.IsPicture)
+            if (m != null)
             {
-                if (!m.Info)
+                switch (m.Type)
                 {
-                    e.Appearance.FontStyleDelta = FontStyle.Bold;
-                    e.Appearance.ForeColor = Color.Blue;
+                    case MessageType.Message:
+                        e.Appearance.FontStyleDelta = FontStyle.Bold;
+                        break;
+                    case MessageType.Info:
+                        e.Appearance.FontStyleDelta = FontStyle.Regular;
+                        break;
+                    case MessageType.Photo:
+                        e.Appearance.FontStyleDelta = FontStyle.Regular;
+                        break;
+                    case MessageType.Sound:
+                        e.Appearance.FontStyleDelta = FontStyle.Regular;
+                        break;
                 }
-                else
-                {
-                    e.Appearance.FontStyleDelta = FontStyle.Regular;
-                    e.Appearance.ForeColor = Color.Gray;
-                }
+
+                e.Appearance.ForeColor = m.Color;
+
                 if (m.Sender == clientId)
                 {
                     e.Appearance.TextOptions.HAlignment = HorzAlignment.Far;
@@ -159,7 +180,7 @@ namespace POGClient
         private void GvMessages_CustomRowCellEdit(object sender, CustomRowCellEditEventArgs e)
         {
             Common.Message m = (Common.Message)gvMessages.GetRow(e.RowHandle);
-            if (m != null && m.IsPicture)
+            if (m != null && m.Type == MessageType.Photo)
             {
                 e.RepositoryItem = riPictureEdit;
             }
@@ -167,6 +188,23 @@ namespace POGClient
             {
                 e.RepositoryItem = riMemoEdit;
             }
+        }
+
+        private void Shake()
+        {
+            try
+            {
+                var original = this.Location;
+                var rnd = new Random(1337);
+                const int shake_amplitude = 10;
+                for (int i = 0; i < 15; i++)
+                {
+                    this.Location = new Point(original.X + rnd.Next(-shake_amplitude, shake_amplitude), original.Y + rnd.Next(-shake_amplitude, shake_amplitude));
+                    System.Threading.Thread.Sleep(20);
+                }
+                this.Location = original;
+            }
+            catch { }
         }
 
         private void bbiSendNudes_ItemClick(object sender, ItemClickEventArgs e)

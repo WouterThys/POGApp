@@ -1,0 +1,201 @@
+﻿2day: Today
+2moro: Tomorrow
+2nite: Tonight
+4EAE: For Ever And Ever
+ABT: About
+ADN: Any Day Now
+AFAIC: As Far As I’m Concerned
+AFAICT: As Far As I Can Tell
+AFAIK: As Far As I Know
+AFAIR: As Far As I Remember
+AKA: Also Known As
+AMA: Ask Me Anything
+ASAIC: As Soon As I Can
+ASAP: As Soon As Possible
+ATM: At The Moment
+B4: Before
+B4N: Bye For Now
+Bae: Babe/Before Anyone Else
+BBL: Be Back Later
+BBT: Be Back Tomorrow
+BCNU: Be Seeing You
+BD: Big Deal
+BF: Boy Friend
+BFF: Best Friends Forever
+BMT: Before My Time
+BOL: Be On Later
+BOT: Back On Topic
+BRB: Be Right Back
+BRO: Brother
+BT: But
+BTW: By The Way
+CFY: Calling For You
+CU: See You
+CUL: See You Later
+Cuz: Because
+CYA: Cover Your Ass
+DAE: Does Anyone Else
+DBA: Doing Business As
+DFTBA: Don’t Forget To Be Awesome!
+DIKU: Do I Know You
+DM: Direct Message
+DND: Do Not Disturb
+DR: Double Rainbow
+DWBH: Don’t Worry, Be Happy
+ELI5: Explain Like I’m 5
+EOM: End Of Message
+EOS: End Of Story
+F2F: Face To Face
+FAQ: Frequently Asked Question
+FB: Facebook
+FBF: Flash Back Friday
+FF: Follow Friday
+FIFY: Fixed It For You
+FITB: Fill In The Blank
+FML: F**** My Life
+FOMO: Fear Of Missing Out
+FTFY: Fixed That For You
+FTL: For The Loss
+FTW: For The Win
+FWB: Friends With Benefits
+FWIW: For What It’s Worth
+FYE: For Your Entertainment
+FYEO: For Your Eyes Only
+FYI: For Your Information
+GA: Go Ahead
+GAL: Get A Life
+GF: Girl Friend
+GM: Good Morning
+GN: Good Night
+Gr8: Great
+GTR: Getting Ready
+HAND: Have A Nice Day
+HB: Hurry Back
+HBD: Happy Birthday
+HBU: How About You
+HMB: Hit Be Back
+HMU: Hit Me Up
+HRU: How Are You
+HTH: Hope This Helps
+IAC: In Any Case
+IC: I See
+ICYMI: In Case You Missed It
+IDC: I Don’t Care
+IDK: I Dont Know
+IG: Instagram
+IIRC: If I Remember Correctly
+IKR: I Know Right
+ILY: I Love You
+IMHO: In My Humble Opinion
+IMMD: It Made My Day
+IMY: I Miss You
+IRL: In Real Life
+IS: I’m Sorry
+ISO: In Search Of
+IU2U: It’s Up To You
+J4F: Just For Fun
+JAM: Just A Minute
+JFY: Just For You
+JIC: Just In Case
+JK: Just Kidding
+JSYK: Just So You Know
+KK: Okay
+L8: Late
+L8R: Later
+LMA: Leave Me Alone
+LMAO: Laughing My Ass Off
+LMBO: Laughing My Butt Off
+LMK: Let Me Know
+LOL: Laugh Out Loud
+LTNS: Long Time No See
+LYLAS: Love You Like A Sister
+M/F: Male or Female
+M8: Mate
+MP: My pleasure
+MSM: Mainstream Media
+MU: Miss You
+MYOB: Mind Your Own Business
+NAGI: Not A Good Idea
+NBD: No Big Deal
+NE1: Anyone
+NM: Not Much
+NP: No Problem
+NSFL: Not Safe For Life
+NSFW: Not Safe For Work
+NTS: Note To Self
+NVM: Never Mind
+OC: Original Content
+OH: Overheard
+OIC: Oh ! I See
+OMD: Oh My Damn
+OMG: Oh My Goodness
+OMW: On My Way
+OT: Off Topic
+OFC: Of course
+PAW: Parents Are Watching
+Pls: Please
+POTD: Photo Of The Day
+POV: Point Of View
+PPL: People
+PTB: Please Text Back
+Q4U: Question For You
+QQ: Crying
+RBTL: Read Between The Lines
+RIP: Rest In Peace
+RL: Real Life
+ROFL: Rolling On the Floor Laughing
+RT: Retweet
+RTM: Read The Manual
+SIS: Sister
+SITD: Still In The Dark
+SM: Social Media
+SMH: Shaking My Head
+SMY: Somebody
+SNH: Sarcasm Noted Here
+SOL: Sooner Or Later
+Some1: Someone
+SRSLY: Seriously
+STBY: Sucks To Be You
+Str8: Straight
+SYS: See You Soon
+TBA: To Be Announced
+TBH: To Be Honest
+TBT: Throwback Thursday
+TBT: Truth Be Told
+TFH: Thread From Hell
+TFTI: Thanks For The Invite
+TGIF: Thank God It’s Friday
+THX: Thanks
+TIA: Thanks in Advance
+TIL: Today I Learned
+TIME: Tears In My Eyes
+TL;DR: Too Long; Didn’t Read
+TLC: Tender Loving Care
+TMI: Too Much Information
+TTYL: Talk To You Later
+TTYS: Talk To You Soon
+Txt: Text
+TYVM: Thank You Very Much
+U: You
+U4F: You Forever
+UR: Your
+VBG: Very Big Grin
+VSF: Very Sad Face
+WB: Welcome Back
+WBU: What About You?
+WEG: Wicked Evil Grin
+WKND: Weekend
+WOM: Word of Mouth
+WOTD: Word Of The Day
+Wru: Who Are You
+WTH: What The Heck?
+WTPA: Where The Party At?
+WU?: Whats Up
+WYCM: Will You Call Me?
+WYWH: Wish You Were Here
+XOXO: Hugs and Kisses
+YGM: You’ve Got Mail
+YNK: You Never Know
+YOLO: You Only Live Once
+YT: YouTube
+YW: You’re Welcome

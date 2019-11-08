@@ -15,6 +15,24 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_00F057C118A345C092C4C28DA9D73D01"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_05973DB8CE6345C1A5867B71CAD57900"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_09B26878AA9D4C82817906755B3CE7FA"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_0B72D2DE4B594F879D610A47A4BED88A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -69,6 +87,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_12196946843A4A21A27C785CC4B4CD1E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_15AEC8673E7819046ECAF2F24ADAF5A4"
         "OwnerKey" = "8:_AEBED4C30FC12C80CFBB11330DE7DA15"
         "MsmSig" = "8:_UNDEFINED"
@@ -117,7 +141,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_165E8E5ECDC0434BAECB5D947004CE09"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_17ACA9C4592A46C38B36FE1B8A9B0689"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1B160D5817864674BE32670920CB34F7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -135,6 +171,66 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_1FFAF0D1B98C23A1FD03A59BDA411E3E"
+        "OwnerKey" = "8:_17ACA9C4592A46C38B36FE1B8A9B0689"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1FFAF0D1B98C23A1FD03A59BDA411E3E"
+        "OwnerKey" = "8:_20B75A9E66639F9D492DA8887B61ECE7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_20B75A9E66639F9D492DA8887B61ECE7"
+        "OwnerKey" = "8:_17ACA9C4592A46C38B36FE1B8A9B0689"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_21098C92950543A3897F4BCF89E61085"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_216C955D207648E3A000C8BC47B7FB10"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2AC63821D6814A83A134A4A1589A70F9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2B4E68423F1D49F38F7F2EF791AC9F73"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2D3F85A7D3A64B00AD7C114CFF4F333D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_339F04A856D8414ABB32CC08BF2B00D1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3C3FC04BE91F411BB24BB67D16DD80C3"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_3DCB1152BCF3C426C05DBCED5BBD0247"
         "OwnerKey" = "8:_17ACA9C4592A46C38B36FE1B8A9B0689"
         "MsmSig" = "8:_UNDEFINED"
@@ -143,6 +239,24 @@
         {
         "MsmKey" = "8:_3DCB1152BCF3C426C05DBCED5BBD0247"
         "OwnerKey" = "8:_B52D341846E2AAF008B3ACC0972FBCAB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4195B7018BAB4B939169D0ECAB4FCA69"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_44387EC2668A41C291912B7F6A5DDEBA"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_45DAE56C252E4C5A88ADEE1754F1AF0A"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -237,8 +351,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_53FD1B210C07675816F2553AE948B23C"
-        "OwnerKey" = "8:_17ACA9C4592A46C38B36FE1B8A9B0689"
+        "MsmKey" = "8:_545B1CBC7BAF4CFEAD0E8EFF66C9C594"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -255,14 +369,74 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_960AB89011ADE4724129B8072BC65E6C"
-        "OwnerKey" = "8:_17ACA9C4592A46C38B36FE1B8A9B0689"
+        "MsmKey" = "8:_5602609A1FB945E48BF404C640678C9E"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_960AB89011ADE4724129B8072BC65E6C"
-        "OwnerKey" = "8:_53FD1B210C07675816F2553AE948B23C"
+        "MsmKey" = "8:_5FC0DA5748DA4FDEA1BB9A76E2659FF5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_63FE1BEB4A444D14B0A2D106CEC6F38F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6525F93C97904B2A907C9F9C2DBEFCE3"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6FACC87227A4443787C8F93ACBD077A4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_705FC9F0B1984A78BA5C14D593B9E2E0"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_732F11AA71E24AD78D31CEB6D9A12F1C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7A4D9AFF4321470AA5CD7015CD9E1A31"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7A5E19500F1F43729A00D9B05D4A773B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_957D1211CB4E40EF9A3E9F212CF3A466"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_965D2EB39B6E4BC68CE2C4A23A3E16FD"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9884A1928E1648A19056427B165AE706"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -275,6 +449,12 @@
         {
         "MsmKey" = "8:_9EE2DFF54E5C44FE8F87EEB93C0F12E0"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A16E1375EEEFE4DDEE188549FCEC28C7"
+        "OwnerKey" = "8:_17ACA9C4592A46C38B36FE1B8A9B0689"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -297,6 +477,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_AE68EDB9712A4CE9BC7BFB028517D546"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_AEBED4C30FC12C80CFBB11330DE7DA15"
         "OwnerKey" = "8:_17ACA9C4592A46C38B36FE1B8A9B0689"
         "MsmSig" = "8:_UNDEFINED"
@@ -311,6 +497,18 @@
         {
         "MsmKey" = "8:_B52D341846E2AAF008B3ACC0972FBCAB"
         "OwnerKey" = "8:_17ACA9C4592A46C38B36FE1B8A9B0689"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BCA1E396832841ACB06615614AF92BF8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C53F9BD5B72B45DB8D67D91DE52D8E9F"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -333,6 +531,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_D7965405F0DA44AD83F6293711ADBEBB"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DE898482BFD240B3B38ED8DD610B769E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_E3FB212107AE063147A04700EE0E340C"
         "OwnerKey" = "8:_B52D341846E2AAF008B3ACC0972FBCAB"
         "MsmSig" = "8:_UNDEFINED"
@@ -341,6 +551,12 @@
         {
         "MsmKey" = "8:_E3FB212107AE063147A04700EE0E340C"
         "OwnerKey" = "8:_17ACA9C4592A46C38B36FE1B8A9B0689"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EB890BC251B645198C64B96957F18360"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -419,6 +635,12 @@
         {
         "MsmKey" = "8:_FC50FCFA7776AB608EE02FF813140DBE"
         "OwnerKey" = "8:_548F5954B45950A0FA9783C249CBD714"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FE034E88952A49D3B6D3659DD5EB4168"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -526,13 +748,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_53FD1B210C07675816F2553AE948B23C"
+        "OwnerKey" = "8:_20B75A9E66639F9D492DA8887B61ECE7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_960AB89011ADE4724129B8072BC65E6C"
+        "OwnerKey" = "8:_A16E1375EEEFE4DDEE188549FCEC28C7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_1FFAF0D1B98C23A1FD03A59BDA411E3E"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -592,6 +820,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -622,6 +858,66 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_00F057C118A345C092C4C28DA9D73D01"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Silly_Farts-Joe-1473367952.mp3"
+            "TargetName" = "8:Silly_Farts-Joe-1473367952.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_05973DB8CE6345C1A5867B71CAD57900"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Fire Crackers-SoundBible.com-1716803209.mp3"
+            "TargetName" = "8:Fire Crackers-SoundBible.com-1716803209.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_09B26878AA9D4C82817906755B3CE7FA"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Crow_Call_2-JimBob-1215724899.mp3"
+            "TargetName" = "8:Crow_Call_2-JimBob-1215724899.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0B72D2DE4B594F879D610A47A4BED88A"
             {
             "SourcePath" = "8:C:\\Windows\\System32\\msiexec.exe"
@@ -704,6 +1000,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_12196946843A4A21A27C785CC4B4CD1E"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Radio Tune-SoundBible.com-1525681700.mp3"
+            "TargetName" = "8:Radio Tune-SoundBible.com-1525681700.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_15AEC8673E7819046ECAF2F24ADAF5A4"
             {
             "AssemblyRegister" = "3:1"
@@ -733,6 +1049,46 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_165E8E5ECDC0434BAECB5D947004CE09"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Best_Helicopter_Pass-Mike_Koenig-1156203370.mp3"
+            "TargetName" = "8:Best_Helicopter_Pass-Mike_Koenig-1156203370.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1B160D5817864674BE32670920CB34F7"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Cow_Moo-Mike_Koenig-42670858.mp3"
+            "TargetName" = "8:Cow_Moo-Mike_Koenig-42670858.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1D3AB40CE748AF458335356CF27B48DF"
@@ -766,6 +1122,208 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1FFAF0D1B98C23A1FD03A59BDA411E3E"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_1FFAF0D1B98C23A1FD03A59BDA411E3E"
+                    {
+                    "Name" = "8:Common.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Common.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_84C5135CE71245A691BEF88FB40E700B"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_20B75A9E66639F9D492DA8887B61ECE7"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:POGApp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_20B75A9E66639F9D492DA8887B61ECE7"
+                    {
+                    "Name" = "8:POGApp.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:POGApp.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_84C5135CE71245A691BEF88FB40E700B"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_21098C92950543A3897F4BCF89E61085"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Train_Honk_Horn_Clear-Mike_Koenig-1632487478.mp3"
+            "TargetName" = "8:Train_Honk_Horn_Clear-Mike_Koenig-1632487478.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_216C955D207648E3A000C8BC47B7FB10"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Helicopter_Leaving-Mike_Koenig-292006835.mp3"
+            "TargetName" = "8:Helicopter_Leaving-Mike_Koenig-292006835.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2AC63821D6814A83A134A4A1589A70F9"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Air_Wrench_Short-Lightning_McQue-2139303794.mp3"
+            "TargetName" = "8:Air_Wrench_Short-Lightning_McQue-2139303794.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2B4E68423F1D49F38F7F2EF791AC9F73"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Dying Light Bulb-SoundBible.com-742005847.mp3"
+            "TargetName" = "8:Dying Light Bulb-SoundBible.com-742005847.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2D3F85A7D3A64B00AD7C114CFF4F333D"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Cowboy_with_spurs-G-rant-1371954508.mp3"
+            "TargetName" = "8:Cowboy_with_spurs-G-rant-1371954508.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_339F04A856D8414ABB32CC08BF2B00D1"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\fire_bow_sound-mike-koenig.mp3"
+            "TargetName" = "8:fire_bow_sound-mike-koenig.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3C3FC04BE91F411BB24BB67D16DD80C3"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\punch_or_whack_-Vladimir-403040765.mp3"
+            "TargetName" = "8:punch_or_whack_-Vladimir-403040765.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3DCB1152BCF3C426C05DBCED5BBD0247"
             {
             "AssemblyRegister" = "3:1"
@@ -795,6 +1353,66 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4195B7018BAB4B939169D0ECAB4FCA69"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Wind-Mark_DiAngelo-1940285615.mp3"
+            "TargetName" = "8:Wind-Mark_DiAngelo-1940285615.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_44387EC2668A41C291912B7F6A5DDEBA"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Dial Up Modem-SoundBible.com-1424648272.mp3"
+            "TargetName" = "8:Dial Up Modem-SoundBible.com-1424648272.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_45DAE56C252E4C5A88ADEE1754F1AF0A"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Thunder-Mark_DiAngelo-2147265856.mp3"
+            "TargetName" = "8:Thunder-Mark_DiAngelo-2147265856.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_518E7ADEE054AA24B03A181586159525"
@@ -859,23 +1477,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_53FD1B210C07675816F2553AE948B23C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_545B1CBC7BAF4CFEAD0E8EFF66C9C594"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:POGApp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_53FD1B210C07675816F2553AE948B23C"
-                    {
-                    "Name" = "8:POGApp.exe"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:POGApp.exe"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Click2-Sebastian-759472264.mp3"
+            "TargetName" = "8:Click2-Sebastian-759472264.mp3"
             "Tag" = "8:"
-            "Folder" = "8:_84C5135CE71245A691BEF88FB40E700B"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -887,7 +1494,7 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_548F5954B45950A0FA9783C249CBD714"
@@ -921,23 +1528,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_960AB89011ADE4724129B8072BC65E6C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5602609A1FB945E48BF404C640678C9E"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_960AB89011ADE4724129B8072BC65E6C"
-                    {
-                    "Name" = "8:Common.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Common.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\male_cough-Mike_Koenig-144979711.mp3"
+            "TargetName" = "8:male_cough-Mike_Koenig-144979711.mp3"
             "Tag" = "8:"
-            "Folder" = "8:_84C5135CE71245A691BEF88FB40E700B"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -949,7 +1545,227 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5FC0DA5748DA4FDEA1BB9A76E2659FF5"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Kid Laughing Short-SoundBible.com-667826932.mp3"
+            "TargetName" = "8:Kid Laughing Short-SoundBible.com-667826932.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_63FE1BEB4A444D14B0A2D106CEC6F38F"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Pew_Pew-DKnight556-1379997159.mp3"
+            "TargetName" = "8:Pew_Pew-DKnight556-1379997159.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6525F93C97904B2A907C9F9C2DBEFCE3"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\sweeping_straw_broom-mike-koenig.mp3"
+            "TargetName" = "8:sweeping_straw_broom-mike-koenig.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6FACC87227A4443787C8F93ACBD077A4"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Ninja Samurai Sword-SoundBible.com-1359598877.mp3"
+            "TargetName" = "8:Ninja Samurai Sword-SoundBible.com-1359598877.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_705FC9F0B1984A78BA5C14D593B9E2E0"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Decapitated-SoundBible.com-1227556545.mp3"
+            "TargetName" = "8:Decapitated-SoundBible.com-1227556545.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_732F11AA71E24AD78D31CEB6D9A12F1C"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\alert.wav"
+            "TargetName" = "8:alert.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7A4D9AFF4321470AA5CD7015CD9E1A31"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Config\\slang.txt"
+            "TargetName" = "8:slang.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_A66E8E9A349F4C399DC6E3AEAC953F59"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7A5E19500F1F43729A00D9B05D4A773B"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\MP5_SMG-GunGuru-703432894.mp3"
+            "TargetName" = "8:MP5_SMG-GunGuru-703432894.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_957D1211CB4E40EF9A3E9F212CF3A466"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Train_Approach_n_Pass-Mike_Koenig-678807208.mp3"
+            "TargetName" = "8:Train_Approach_n_Pass-Mike_Koenig-678807208.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_965D2EB39B6E4BC68CE2C4A23A3E16FD"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\dialup.mp3"
+            "TargetName" = "8:dialup.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9884A1928E1648A19056427B165AE706"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Fizzle-SoundBible.com-1439537520.mp3"
+            "TargetName" = "8:Fizzle-SoundBible.com-1439537520.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9B7F3B73EE914D7C8DE832DE89DA3DB8"
@@ -990,6 +1806,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A16E1375EEEFE4DDEE188549FCEC28C7"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:NAudio, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_A16E1375EEEFE4DDEE188549FCEC28C7"
+                    {
+                    "Name" = "8:NAudio.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:NAudio.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_84C5135CE71245A691BEF88FB40E700B"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A1D3E69B0EB3E53EA39407E32863BF84"
@@ -1054,6 +1901,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AE68EDB9712A4CE9BC7BFB028517D546"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Kid_Laugh-Mike_Koenig-1673908713.mp3"
+            "TargetName" = "8:Kid_Laugh-Mike_Koenig-1673908713.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AEBED4C30FC12C80CFBB11330DE7DA15"
             {
             "AssemblyRegister" = "3:1"
@@ -1116,6 +1983,46 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BCA1E396832841ACB06615614AF92BF8"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Guillotine-SoundBible.com-1694495814.mp3"
+            "TargetName" = "8:Guillotine-SoundBible.com-1694495814.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C53F9BD5B72B45DB8D67D91DE52D8E9F"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Short Egg Cracking-SoundBible.com-991604256.mp3"
+            "TargetName" = "8:Short Egg Cracking-SoundBible.com-991604256.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_CD11ECC54D0735EB68E624745EEA0BED"
             {
             "AssemblyRegister" = "3:1"
@@ -1147,6 +2054,46 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D7965405F0DA44AD83F6293711ADBEBB"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Fart Short Ripper-SoundBible.com-1317602707.mp3"
+            "TargetName" = "8:Fart Short Ripper-SoundBible.com-1317602707.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DE898482BFD240B3B38ED8DD610B769E"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\short_male_burp-Mike_Koenig-832127430.mp3"
+            "TargetName" = "8:short_male_burp-Mike_Koenig-832127430.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E3FB212107AE063147A04700EE0E340C"
             {
             "AssemblyRegister" = "3:1"
@@ -1176,6 +2123,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EB890BC251B645198C64B96957F18360"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\neck_snap-Vladimir-719669812.mp3"
+            "TargetName" = "8:neck_snap-Vladimir-719669812.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F5644296E9727944F433115EB2790C86"
@@ -1240,6 +2207,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FE034E88952A49D3B6D3659DD5EB4168"
+            {
+            "SourcePath" = "8:..\\DXApplication1\\POGClient\\Sounds\\Chopping Off Limb-SoundBible.com-884800545.mp3"
+            "TargetName" = "8:Chopping Off Limb-SoundBible.com-884800545.mp3"
+            "Tag" = "8:"
+            "Folder" = "8:_6C09249FF4684EF58E1A2A0E0181FF79"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -1256,6 +2243,17 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_6C09249FF4684EF58E1A2A0E0181FF79"
+                    {
+                    "Name" = "8:Sounds"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_72CD609A95C84F3DB0F457FBA843BA86"
+                        "Folders"
+                        {
+                        }
+                    }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_A66E8E9A349F4C399DC6E3AEAC953F59"
                     {
                     "Name" = "8:Config"
@@ -1329,15 +2327,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:POG Chat 2000"
-        "ProductCode" = "8:{F556E327-9230-4FEC-8C30-33AE45477A98}"
-        "PackageCode" = "8:{AD98F4D4-893A-4FF4-9FE5-84E29CE40AE6}"
+        "ProductCode" = "8:{A615C847-452E-47A2-81C4-645A1BF8A0E7}"
+        "PackageCode" = "8:{D1F6A79D-85D1-4A5D-BE03-9682036042E0}"
         "UpgradeCode" = "8:{CBBDED45-4078-4D9F-949A-6F2562A2BB57}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.3"
+        "ProductVersion" = "8:1.0.5"
         "Manufacturer" = "8:Waldotron"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
