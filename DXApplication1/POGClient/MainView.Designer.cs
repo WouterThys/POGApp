@@ -67,6 +67,7 @@
             this.bar2 = new DevExpress.XtraBars.Bar();
             this.bbiLogOut = new DevExpress.XtraBars.BarButtonItem();
             this.bbiSendNudes = new DevExpress.XtraBars.BarButtonItem();
+            this.skinDropDownButtonItem1 = new DevExpress.XtraBars.SkinDropDownButtonItem();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -98,6 +99,7 @@
             this.ItemForClientName = new DevExpress.XtraLayout.LayoutControlItem();
             this.ItemForClientInfo = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.bbiMakeSound = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.riCeLoggedIn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icLogStates)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.riPeImage)).BeginInit();
@@ -282,6 +284,7 @@
             // riPictureEdit
             // 
             this.riPictureEdit.Name = "riPictureEdit";
+            this.riPictureEdit.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
             // 
             // panelControl1
             // 
@@ -372,9 +375,11 @@
             this.barManager.Form = this;
             this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.bbiLogOut,
-            this.bbiSendNudes});
+            this.bbiSendNudes,
+            this.skinDropDownButtonItem1,
+            this.bbiMakeSound});
             this.barManager.MainMenu = this.bar2;
-            this.barManager.MaxItemId = 2;
+            this.barManager.MaxItemId = 7;
             this.barManager.OptionsLayout.AllowAddNewItems = false;
             // 
             // bar2
@@ -386,7 +391,9 @@
             this.bar2.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar2.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.bbiLogOut),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbiSendNudes)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiSendNudes),
+            new DevExpress.XtraBars.LinkPersistInfo(this.skinDropDownButtonItem1),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbiMakeSound)});
             this.bar2.OptionsBar.AllowQuickCustomization = false;
             this.bar2.OptionsBar.MultiLine = true;
             this.bar2.OptionsBar.UseWholeRow = true;
@@ -406,6 +413,12 @@
             this.bbiSendNudes.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiSendNudes.ImageOptions.Image")));
             this.bbiSendNudes.Name = "bbiSendNudes";
             this.bbiSendNudes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiSendNudes_ItemClick);
+            // 
+            // skinDropDownButtonItem1
+            // 
+            this.skinDropDownButtonItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.skinDropDownButtonItem1.Id = 2;
+            this.skinDropDownButtonItem1.Name = "skinDropDownButtonItem1";
             // 
             // barDockControlTop
             // 
@@ -883,6 +896,13 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(493, 221);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // bbiMakeSound
+            // 
+            this.bbiMakeSound.Caption = "BUZZER";
+            this.bbiMakeSound.Id = 6;
+            this.bbiMakeSound.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbiMakeSound.ImageOptions.Image")));
+            this.bbiMakeSound.Name = "bbiMakeSound";
+            // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1003,6 +1023,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit riMemoEdit;
         private DevExpress.XtraBars.BarButtonItem bbiSendNudes;
         private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit riPictureEdit;
+        private DevExpress.XtraBars.SkinDropDownButtonItem skinDropDownButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem bbiMakeSound;
     }
 }
 

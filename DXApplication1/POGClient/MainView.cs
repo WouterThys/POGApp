@@ -49,7 +49,7 @@ namespace POGClient
             gvMessages.RowCellStyle += GvMessages_RowCellStyle;
             gvMessages.RowCountChanged += GvMessages_RowCountChanged;
             gvMessages.CustomRowCellEdit += GvMessages_CustomRowCellEdit;
-            riPictureEdit.SizeMode = PictureSizeMode.Stretch;
+            riPictureEdit.SizeMode = PictureSizeMode.Squeeze;
             
             for (int i = 0; i < icAvatars.Images.Count; i++)
             {
@@ -82,11 +82,13 @@ namespace POGClient
                         clientId = fluent.ViewModel.Me.Id;
                         xtraTabControl.SelectedTabPageIndex = 1;
                         bbiSendNudes.Visibility = BarItemVisibility.Always;
+                        bbiMakeSound.Visibility = BarItemVisibility.Always;
                     }
                     else
                     {
                         xtraTabControl.SelectedTabPageIndex = 0;
                         bbiSendNudes.Visibility = BarItemVisibility.Never;
+                        bbiMakeSound.Visibility = BarItemVisibility.Never;
                     }
                 }));
             });
@@ -101,6 +103,8 @@ namespace POGClient
             fluent.BindCommand(btnLogIn, m => m.LogIn());
             fluent.BindCommand(btnSendMessage, m => m.SendMessage());
             fluent.BindCommand(bbiLogOut, m => m.LogOut());
+            fluent.BindCommand(bbiMakeSound, m => m.MakeSound());
+            
         }
 
         private void GvMessages_RowCountChanged(object sender, EventArgs e)
@@ -168,7 +172,7 @@ namespace POGClient
         private void bbiSendNudes_ItemClick(object sender, ItemClickEventArgs e)
         {
              TakePictureDialog dialog = new TakePictureDialog();
-            if (dialog.ShowDialog("Send nudes") == DialogResult.OK)
+            if (dialog.ShowDialog("Fotos enal") == DialogResult.OK)
             {
                 Image image = dialog.Image;
                 string tmp = Path.GetTempFileName();

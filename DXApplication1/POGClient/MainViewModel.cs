@@ -2,11 +2,14 @@
 using DevExpress.Mvvm;
 using DevExpress.Mvvm.DataAnnotations;
 using DevExpress.Mvvm.POCO;
+using NAudio.Wave;
 using POGClient.ServiceReference;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
+using System.Media;
 using System.ServiceModel;
 using System.Threading.Tasks;
 
@@ -34,6 +37,11 @@ namespace POGClient
         // Services
         public virtual IMessageBoxService MessageBoxService { get { throw new NotImplementedException(); } }
         public virtual IDispatcherService DispatcherService { get { throw new NotImplementedException(); } }
+
+        //// Sounds
+        public virtual BindingList<string> Sounds { get; protected set; }
+        private WaveOutEvent outputDevice;
+        private AudioFileReader audioFile;
 
         // Ctor
         public MainViewModel()
@@ -79,6 +87,7 @@ namespace POGClient
                 Messages = new BindingList<Message>();
                 FetchClients();
                 FetchAllMessages();
+                LoadAllSounds();
             }
         }
 
@@ -101,6 +110,7 @@ namespace POGClient
             this.RaiseCanExecuteChanged(x => x.LogIn());
             this.RaiseCanExecuteChanged(x => x.LogOut());
             this.RaiseCanExecuteChanged(x => x.SendMessage());
+            this.RaiseCanExecuteChanged(x => x.MakeSound());
         }
 
         public virtual bool CanLogIn()
@@ -153,9 +163,48 @@ namespace POGClient
                 if (CanSendMessage())
                 {
                     SendMessage();
-                    
+
                     keyEvent.Handled = true;
                     keyEvent.SuppressKeyPress = true;
+                }
+            }
+        }
+
+        public virtual bool CanMakeSound()
+        {
+            return Connected && Sounds != null && Sounds.Count > 0;
+        }
+
+        public virtual void MakeSound()
+        {
+            Random random = new Random();
+            int r = random.Next(Sounds.Count);
+            string sound = Sounds[r];
+            if (!string.IsNullOrEmpty(sound))
+            {
+                try
+                {
+                    if (outputDevice == null)
+                    {
+                        outputDevice = new WaveOutEvent();
+                        outputDevice.PlaybackStopped += (s, e) =>
+                        {
+                            outputDevice.Dispose();
+                            outputDevice = null;
+                            audioFile.Dispose();
+                            audioFile = null;
+                        };
+                    }
+                    if (audioFile == null)
+                    {
+                        audioFile = new AudioFileReader(sound);
+                        outputDevice.Init(audioFile);
+                    }
+                    outputDevice.Play();
+                }
+                catch (Exception e)
+                {
+                    Debug.WriteLine("Play sound failed: " + e);
                 }
             }
         }
@@ -191,7 +240,7 @@ namespace POGClient
             Send(m);
         }
 
-       private void Send(Message message)
+        private void Send(Message message)
         {
             if (message != null)
             {
@@ -234,6 +283,22 @@ namespace POGClient
                     {
                         Messages = new BindingList<Message>(messages);
                     });
+                });
+            }, DispatcherService);
+        }
+
+        private void LoadAllSounds()
+        {
+            Task.Factory.StartNew((dispatcher) =>
+            {
+                List<string> soundFiles = new List<string>();
+                foreach (string file in Directory.GetFiles("Sounds/"))
+                {
+                    soundFiles.Add(file);
+                }
+                ((IDispatcherService)dispatcher).BeginInvoke(() =>
+                {
+                    Sounds = new BindingList<string>(soundFiles);
                 });
             }, DispatcherService);
         }
@@ -324,7 +389,7 @@ namespace POGClient
             if (msg.IsPicture)
             {
                 msg.Content = "Got nudes!";
-                Task.Factory.StartNew(() => 
+                Task.Factory.StartNew(() =>
                 {
                     byte[] data = Convert.FromBase64String(msg.Picture);
                     string name = Guid.NewGuid() + ".png";
